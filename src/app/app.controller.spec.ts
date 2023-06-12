@@ -18,4 +18,10 @@ describe('AppController', () => {
       expect(appController.getHello()).toBe('Hello World!');
     });
   });
+
+  describe('getProvince', () => {
+    it('should return "List Province!"', () => {
+      const appController = app.get(AppController);
+    });
+  });
 });
