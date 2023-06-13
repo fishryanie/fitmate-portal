@@ -1,5 +1,7 @@
 import { DATA_LOCATION, DATA_TERMS_POLICY } from '#mocks';
 import { Injectable } from '@nestjs/common';
+import { Connection } from 'mongoose';
+import { InjectConnection } from '@nestjs/mongoose';
 import {
   TypeDistrict,
   TypeProvince,

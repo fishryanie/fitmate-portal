@@ -7,7 +7,7 @@ import {
   TypeWard,
 } from '#mocks/types';
 
-@Controller()
+@Controller('')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
