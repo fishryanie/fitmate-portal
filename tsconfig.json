@@ -15,8 +15,14 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "paths": {
-      "#mocks": ["mocks"],
-      "#mocks/*": ["mocks/*"],
+      "#mocks": ["mock"],
+      "#mocks/*": ["mock/*"],
+      "#schema": ["schema"],
+      "#schema/*": ["schema/*"],
+      "#service": ["service"],
+      "#service/*": ["service/*"],
+      "#controllers": ["controllers"],
+      "#controllers/*": ["controllers/*"],
     }
   }
 }

@@ -1,4 +1,4 @@
-import { DATA_LOCATION, DATA_TERMS_POLICY } from '#mocks';
+import { DATA_LOCATION, DATA_TERMS_POLICY } from 'mock';
 import { Injectable } from '@nestjs/common';
 import { Connection } from 'mongoose';
 import { InjectConnection } from '@nestjs/mongoose';
@@ -7,7 +7,7 @@ import {
   TypeProvince,
   TypeTermsPolicy,
   TypeWard,
-} from '#mocks/types';
+} from 'mock/types';
 
 @Injectable()
 export class AppService {

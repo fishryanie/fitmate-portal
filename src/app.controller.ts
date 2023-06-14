@@ -5,7 +5,7 @@ import {
   TypeProvince,
   TypeTermsPolicy,
   TypeWard,
-} from '#mocks/types';
+} from 'mock/types';
 
 @Controller('')
 export class AppController {
