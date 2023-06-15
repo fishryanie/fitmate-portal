@@ -1,19 +1,22 @@
 import { v4 as uuidv4 } from 'uuid';
 import { diskStorage } from 'multer';
-import { Module, RequestMethod, MiddlewareConsumer } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MulterModule } from '@nestjs/platform-express';
-import { UserController } from 'controller/UserController';
+import { Module, RequestMethod, MiddlewareConsumer } from '@nestjs/common';
 import { User, UserSchema } from '#schema/UserSchema';
-import { VideoController } from 'controller/VideoController';
-import { UserService } from '#service/UserService';
 import { AppController } from './app.controller';
 import { isAuthenticated } from './app.middleware';
 import { AppService } from './app.service';
+import { CommonService, UserService } from '#service';
+import { CommonController, UserController } from '#controller';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/Test'),
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+    }),
+    MongooseModule.forRoot(process.env.MONGO_URL),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     MulterModule.register({
       storage: diskStorage({
@@ -25,14 +28,14 @@ import { AppService } from './app.service';
       }),
     }),
   ],
-  controllers: [AppController, UserController],
-  providers: [AppService, UserService],
+  controllers: [AppController, UserController, CommonController],
+  providers: [AppService, UserService, CommonService],
 })
 export class AppModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(isAuthenticated)
-      .exclude({ path: 'api/v1/video/:id', method: RequestMethod.GET })
-      .forRoutes(VideoController);
-  }
+  // configure(consumer: MiddlewareConsumer) {
+  //   consumer
+  //     .apply(isAuthenticated)
+  //     .exclude({ path: 'api/v1/video/:id', method: RequestMethod.GET })
+  //     .forRoutes(VideoController);
+  // }
 }

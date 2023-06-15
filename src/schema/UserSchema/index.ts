@@ -1,10 +1,8 @@
-import { EXPIRES_OTP } from '#constant';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 export type UserDocument = User & Document;
-export type OTPDocument = OTP & Document;
 
-@Schema({ timestamps: true })
+@Schema({ collection: 'user-collection', autoIndex: true, timestamps: true })
 export class User {
   @Prop({ required: true })
   fullName: string;
@@ -27,17 +25,4 @@ export class User {
   @Prop({ required: false })
   birthday: string;
 }
-
-@Schema()
-export class OTP {
-  @Prop({ required: true })
-  otp: number;
-
-  @Prop({ required: true })
-  phone: number;
-}
-
 export const UserSchema = SchemaFactory.createForClass(User);
-export const OtpSchema = SchemaFactory.createForClass(OTP);
-
-OtpSchema.index({ createdAt: 1 }, { expireAfterSeconds: 30 });
