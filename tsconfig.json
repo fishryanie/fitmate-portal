@@ -17,12 +17,14 @@
     "paths": {
       "#mocks": ["mock"],
       "#mocks/*": ["mock/*"],
+      "#constant": ["constant"],
+      "#constant/*": ["constant/*"],
       "#schema": ["schema"],
       "#schema/*": ["schema/*"],
       "#service": ["service"],
       "#service/*": ["service/*"],
-      "#controllers": ["controllers"],
-      "#controllers/*": ["controllers/*"],
+      "#controller": ["controller"],
+      "#controller/*": ["controller/*"],
     }
   }
 }

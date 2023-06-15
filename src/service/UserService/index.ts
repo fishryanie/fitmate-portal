@@ -47,4 +47,8 @@ export class UserService {
   async getOne(email: string): Promise<User> {
     return await this.userModel.findOne({ email }).exec();
   }
+
+  
+
+  
 }

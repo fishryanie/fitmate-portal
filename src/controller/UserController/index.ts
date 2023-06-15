@@ -19,9 +19,9 @@ import { Model } from 'mongoose';
 // import { UserService } from '../model/user.service';
 // import { JwtService } from '@nestjs/jwt';
 
-@Controller('/api/v1')
+@Controller('/api/v1/user')
 export class UserController {
-  @Get('/getUser')
+  @Get('/getAll')
   getUser(@Query('idUser') idUser: string) {
     console.log('🚀 ~ file: index.ts:2 ~ User:', User.name);
 
