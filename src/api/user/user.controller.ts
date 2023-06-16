@@ -1,5 +1,4 @@
-import { User, UserDocument } from '#schema/UserSchema';
-import { UserService } from '#service/UserService';
+import { UserService } from 'api/user/user.service';
 import {
   Body,
   Controller,
@@ -16,10 +15,13 @@ import {
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { User } from './user.schema';
+import { ApiTags } from '@nestjs/swagger';
 // import { User } from '../model/user.schema';
 // import { JwtService } from '@nestjs/jwt';
 
-@Controller('')
+@ApiTags('user')
+@Controller('/api/v1/user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 

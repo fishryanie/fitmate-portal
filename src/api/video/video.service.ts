@@ -8,7 +8,7 @@ import { Model } from 'mongoose';
 import { createReadStream, statSync } from 'fs';
 import { join } from 'path';
 import { Request, Response } from 'express';
-import { Video, VideoDocument } from '#schema/VideoSchema';
+import { Video, VideoDocument } from './video.schema';
 
 @Injectable()
 export class VideoService {

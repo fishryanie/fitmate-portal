@@ -4,12 +4,10 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MulterModule } from '@nestjs/platform-express';
 import { Module, RequestMethod, MiddlewareConsumer } from '@nestjs/common';
-import { User, UserSchema } from '#schema/UserSchema';
-import { AppController } from './app.controller';
 import { isAuthenticated } from './app.middleware';
-import { AppService } from './app.service';
-import { CommonService, UserService } from '#service';
-import { CommonController, UserController } from '#controller';
+import { CommonModule } from '#api/common/common.module';
+import { MemoryStoredFile, NestjsFormDataModule } from 'nestjs-form-data';
+import { UserModule } from '#api/user/user.module';
 
 @Module({
   imports: [
@@ -17,19 +15,20 @@ import { CommonController, UserController } from '#controller';
       envFilePath: '.env',
     }),
     MongooseModule.forRoot(process.env.MONGO_URL),
-    MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
-    MulterModule.register({
-      storage: diskStorage({
-        destination: './public',
-        filename: (req, file, cb) => {
-          const ext = file.mimetype.split('/')[1];
-          cb(null, `${uuidv4()}-${Date.now()}.${ext}`);
-        },
-      }),
-    }),
+    NestjsFormDataModule.config({ storage: MemoryStoredFile }),
+    // MulterModule.register({
+    //   storage: diskStorage({
+    //     destination: './public',
+    //     filename: (req, file, cb) => {
+    //       const ext = file.mimetype.split('/')[1];
+    //       cb(null, `${uuidv4()}-${Date.now()}.${ext}`);
+    //     },
+    //   }),
+    // }),
+
+    CommonModule,
+    UserModule,
   ],
-  controllers: [AppController, UserController, CommonController],
-  providers: [AppService, UserService, CommonService],
 })
 export class AppModule {
   // configure(consumer: MiddlewareConsumer) {

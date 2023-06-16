@@ -15,16 +15,12 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "paths": {
-      "#mocks": ["mock"],
-      "#mocks/*": ["mock/*"],
+      "#api": ["api"],
+      "#api/*": ["api/*"],
+      "#mock": ["mock"],
+      "#mock/*": ["mock/*"],
       "#constant": ["constant"],
-      "#constant/*": ["constant/*"],
-      "#schema": ["schema"],
-      "#schema/*": ["schema/*"],
-      "#service": ["service"],
-      "#service/*": ["service/*"],
-      "#controller": ["controller"],
-      "#controller/*": ["controller/*"],
+      "#constant/*": ["constant/*"]
     }
   }
 }
