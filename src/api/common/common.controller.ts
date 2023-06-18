@@ -2,10 +2,12 @@ import {
   Body,
   Controller,
   Get,
+  HttpCode,
   HttpStatus,
   Post,
   Query,
   Res,
+  UseFilters,
   UseInterceptors,
 } from '@nestjs/common';
 import { CommonService } from './common.service';
@@ -15,10 +17,9 @@ import {
   TypeTermsPolicy,
   TypeWard,
 } from '#mock/types';
-import { ApiConsumes, ApiTags } from '@nestjs/swagger';
-import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('common')
+@ApiTags('Common')
 @Controller('/api/v1/common')
 export class CommonController {
   constructor(private readonly commonService: CommonService) {}
@@ -41,17 +42,5 @@ export class CommonController {
   @Get('/getWard')
   getWard(@Query('idDistrict') idDistrict: string): TypeWard[] {
     return this.commonService.getWard(idDistrict);
-  }
-
-  @Post('/sendOtp')
-  @UseInterceptors(FileInterceptor('file'))
-  async sendOtp(@Res() response: any, @Body() body: { phone: string }) {
-    const modifiedNumber = body.phone.replace(/^\+84/, '0');
-    const result = await this.commonService.sendOTP(modifiedNumber);
-    return response.status(HttpStatus.CREATED).send({
-      data: result,
-      phone: modifiedNumber,
-      message: 'Created successfully',
-    });
   }
 }

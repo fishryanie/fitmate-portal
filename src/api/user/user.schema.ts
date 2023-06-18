@@ -1,28 +1,47 @@
+import { EXPIRES_OTP } from '#constant';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { IsPhoneNumber } from 'class-validator';
 
 export type UserDocument = User & Document;
 
 @Schema({ collection: 'user-collection', autoIndex: true, timestamps: true })
 export class User {
-  @Prop({ required: true })
+  @Prop({ required: false })
   fullName: string;
 
-  @Prop({ required: true, unique: true, lowercase: true, maxlength: 50 })
-  email: string;
+  @Prop({ required: true })
+  username: string;
 
   @Prop({ required: true, trim: true })
   password: string;
 
-  @Prop({ required: true, default: Date.now() })
-  createdDate: Date;
-
   @Prop({ required: true, default: true })
   gender: boolean;
 
-  @Prop({ required: true, default: '' })
+  @Prop({ required: true })
   phone: string;
 
   @Prop({ required: false })
   birthday: string;
 }
+
+@Schema({ collection: 'user-collection', timestamps: true })
+export class OtpDocument {
+  @Prop({ required: true })
+  otp: string;
+
+  @Prop({ required: true, unique: true })
+  @IsPhoneNumber('VI')
+  phone: string;
+
+  @Prop({
+    type: Date,
+    default: Date.now,
+    expires: EXPIRES_OTP,
+    index: { expireAfterSeconds: EXPIRES_OTP },
+  })
+  createdAt: Date;
+}
+
+export const OtpSchema = SchemaFactory.createForClass(OtpDocument);
 export const UserSchema = SchemaFactory.createForClass(User);

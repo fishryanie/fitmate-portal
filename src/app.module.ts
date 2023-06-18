@@ -6,7 +6,6 @@ import { MulterModule } from '@nestjs/platform-express';
 import { Module, RequestMethod, MiddlewareConsumer } from '@nestjs/common';
 import { isAuthenticated } from './app.middleware';
 import { CommonModule } from '#api/common/common.module';
-import { MemoryStoredFile, NestjsFormDataModule } from 'nestjs-form-data';
 import { UserModule } from '#api/user/user.module';
 
 @Module({
@@ -15,7 +14,6 @@ import { UserModule } from '#api/user/user.module';
       envFilePath: '.env',
     }),
     MongooseModule.forRoot(process.env.MONGO_URL),
-    NestjsFormDataModule.config({ storage: MemoryStoredFile }),
     // MulterModule.register({
     //   storage: diskStorage({
     //     destination: './public',

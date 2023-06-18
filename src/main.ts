@@ -9,7 +9,7 @@ async function bootstrap() {
     .setDescription(description)
     .setVersion(version)
     .setContact('Phan Hồng Quân', '0979955925', 'qphanquan1998@gmail.com')
-    .addTag('common')
+    .addTag('Common')
     .addTag('user')
     .build();
 

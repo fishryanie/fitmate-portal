@@ -20,7 +20,9 @@
       "#mock": ["mock"],
       "#mock/*": ["mock/*"],
       "#constant": ["constant"],
-      "#constant/*": ["constant/*"]
+      "#constant/*": ["constant/*"],
+      "#database": ["database"],
+      "#database/*": ["database/*"],
     }
   }
 }
