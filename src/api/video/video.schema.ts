@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { User } from '#api/user/user.schema';
+import { User } from '#api/auth/auth.schema';
 
 export type VideoDocument = Video & Document;
 

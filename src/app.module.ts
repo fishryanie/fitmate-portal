@@ -1,12 +1,18 @@
 import { v4 as uuidv4 } from 'uuid';
 import { diskStorage } from 'multer';
+import { JwtService } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MulterModule } from '@nestjs/platform-express';
-import { Module, RequestMethod, MiddlewareConsumer } from '@nestjs/common';
-import { isAuthenticated } from './app.middleware';
+import {
+  Module,
+  NestModule,
+  MiddlewareConsumer,
+  RequestMethod,
+} from '@nestjs/common';
 import { CommonModule } from '#api/common/common.module';
-import { UserModule } from '#api/user/user.module';
+import { UserModule } from '#api/auth/auth.module';
+import { TokenMiddleware } from './app.middleware';
 
 @Module({
   imports: [
@@ -28,11 +34,11 @@ import { UserModule } from '#api/user/user.module';
     UserModule,
   ],
 })
-export class AppModule {
-  // configure(consumer: MiddlewareConsumer) {
-  //   consumer
-  //     .apply(isAuthenticated)
-  //     .exclude({ path: 'api/v1/video/:id', method: RequestMethod.GET })
-  //     .forRoutes(VideoController);
-  // }
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(TokenMiddleware).forRoutes({
+      path: 'api/v1/auth/getUser',
+      method: RequestMethod.GET,
+    });
+  }
 }

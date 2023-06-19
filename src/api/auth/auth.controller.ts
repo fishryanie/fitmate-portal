@@ -16,22 +16,31 @@ import {
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { OtpDocument, User } from './user.schema';
+import { OtpDocument, User } from './auth.schema';
 import { ApiTags } from '@nestjs/swagger';
-import { UserService } from './user.service';
+import { AuthService } from './auth.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { IsPhoneNumber } from 'class-validator';
 // import { User } from '../model/user.schema';
 
-@ApiTags('/api/v1/user')
-@Controller('/api/v1/user')
+@ApiTags('/api/v1/auth')
+@Controller('/api/v1/auth')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: AuthService) {}
 
-  @Get('/getAll')
+  @Get('/getUser')
   getUser(@Query('idUser') idUser: string) {
-    console.log('🚀 ~ file: index.ts:2 ~ User:', User.name);
     return 'getUser';
+  }
+
+  @Post('/login')
+  @HttpCode(HttpStatus.OK)
+  async Login(
+    @Res() response: any,
+    @Body('username') username: string,
+    @Body('password') password: string,
+  ) {
+    return response.send(await this.userService.login(username, password));
   }
 
   @Post('/signup')
@@ -60,10 +69,4 @@ export class UserController {
       await this.userService.verifyOTP(modifiedNumber, body.otp),
     );
   }
-
-  // @Post('/signin')
-  // async SignIn(@Res() response, @Body() user: User) {
-  //     const token = await this.userServerice.signin(user, this.jwtService);
-  //     return response.status(HttpStatus.OK).json(token)
-  // }
 }

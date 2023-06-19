@@ -23,9 +23,12 @@ export class User {
 
   @Prop({ required: false })
   birthday: string;
+
+  @Prop()
+  refreshToken: string;
 }
 
-@Schema({ collection: 'user-collection', timestamps: true })
+@Schema({ collection: 'otp-collection', timestamps: true })
 export class OtpDocument {
   @Prop({ required: true })
   otp: string;
