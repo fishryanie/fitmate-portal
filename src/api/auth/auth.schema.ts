@@ -9,7 +9,7 @@ export class User {
   @Prop({ required: false })
   fullName: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true, trim: true })
   username: string;
 
   @Prop({ required: true, trim: true })
@@ -21,7 +21,7 @@ export class User {
   @Prop({ required: true })
   phone: string;
 
-  @Prop({ required: false })
+  @Prop()
   birthday: string;
 
   @Prop()

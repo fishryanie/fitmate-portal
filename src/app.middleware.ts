@@ -10,7 +10,7 @@ import { AuthService } from '#api/auth/auth.service';
 @Injectable()
 export class TokenMiddleware implements NestMiddleware {
   constructor(
-    // private jwtService: JwtService,
+    private jwtService: JwtService,
     private authService: AuthService,
   ) {}
 

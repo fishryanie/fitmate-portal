@@ -13,6 +13,7 @@ import {
 import { CommonModule } from '#api/common/common.module';
 import { UserModule } from '#api/auth/auth.module';
 import { TokenMiddleware } from './app.middleware';
+import { FirebaseAuthStrategy } from './firebase/firebase-auth.strategy';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { TokenMiddleware } from './app.middleware';
     CommonModule,
     UserModule,
   ],
+  providers: [JwtService, FirebaseAuthStrategy],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

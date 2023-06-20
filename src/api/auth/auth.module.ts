@@ -22,11 +22,4 @@ import { TokenMiddleware } from 'app.middleware';
   providers: [AuthService],
   exports: [AuthService],
 })
-export class UserModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(TokenMiddleware).forRoutes({
-      path: 'api/v1/auth/getUser',
-      method: RequestMethod.GET,
-    });
-  }
-}
+export class UserModule {}
