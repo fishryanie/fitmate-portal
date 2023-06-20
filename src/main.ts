@@ -3,7 +3,9 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from 'app.module';
 import { description, name, version } from '../package.json';
 import { ValidationPipe } from '@nestjs/common';
+import { Logger } from '@nestjs/common';
 async function bootstrap() {
+  const logger = new Logger('App');
   const configSwagger = new DocumentBuilder()
     .setTitle(name)
     .setDescription(description)
@@ -25,6 +27,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(process.env.PORT, async () => {
     console.log(`Application is running on: ${await app.getUrl()}`);
+    logger.log('Application started on port 3000');
   });
 }
 bootstrap();

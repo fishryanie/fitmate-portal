@@ -1,7 +1,7 @@
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { Strategy, ExtractJwt } from 'passport-firebase-jwt';
-import * as firebaseConfig from './firebase.config.json';
+import * as firebaseConfig from '../firebase.config.json';
 import * as firebase from 'firebase-admin';
 
 const firebase_params = {
@@ -18,7 +18,7 @@ const firebase_params = {
 };
 
 @Injectable()
-export class FirebaseAuthStrategy extends PassportStrategy(
+export class FirebaseStrategy extends PassportStrategy(
   Strategy,
   'firebase-auth',
 ) {
@@ -31,6 +31,7 @@ export class FirebaseAuthStrategy extends PassportStrategy(
       credential: firebase.credential.cert(firebase_params),
     });
   }
+
   async validate(token: string) {
     const firebaseUser: any = await this.defaultApp
       .auth()

@@ -1,19 +1,20 @@
-import { v4 as uuidv4 } from 'uuid';
-import { diskStorage } from 'multer';
-import { JwtService } from '@nestjs/jwt';
-import { ConfigModule } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
-import { MulterModule } from '@nestjs/platform-express';
 import {
   Module,
   NestModule,
   MiddlewareConsumer,
   RequestMethod,
 } from '@nestjs/common';
+import { v4 as uuidv4 } from 'uuid';
+import { diskStorage } from 'multer';
+import { JwtService } from '@nestjs/jwt';
+import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+import { MulterModule } from '@nestjs/platform-express';
 import { CommonModule } from '#api/common/common.module';
 import { UserModule } from '#api/auth/auth.module';
 import { TokenMiddleware } from './app.middleware';
-import { FirebaseAuthStrategy } from './firebase/firebase-auth.strategy';
+import { FirebaseStrategy } from './firebase/strategies/firebase.strategy';
+import { GoogleStrategy } from './firebase/strategies/google.strategy';
 
 @Module({
   imports: [
@@ -31,10 +32,10 @@ import { FirebaseAuthStrategy } from './firebase/firebase-auth.strategy';
     //   }),
     // }),
 
-    CommonModule,
     UserModule,
+    CommonModule,
   ],
-  providers: [JwtService, FirebaseAuthStrategy],
+  providers: [JwtService, FirebaseStrategy, GoogleStrategy],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
