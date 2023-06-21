@@ -13,6 +13,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { OtpDocument, User, UserDocument } from './auth.schema';
 import { EXPIRES_OTP } from '#constant';
+import { UserDto } from './DTO/user.dto';
 
 @Injectable()
 export class AuthService {
@@ -62,7 +63,18 @@ export class AuthService {
     };
   }
 
-  public async signup(phone: string) {
+  public async signup(body: UserDto) {
+    const options = {};
+    if (body.phone) {
+      options['phone'] = body.phone;
+    }
+    if (body.email) {
+      options['email'] = body.email;
+    }
+    const foundUser = await this.userModel.findOne(options).exec();
+    if (foundUser) {
+      throw new BadRequestException('Registered account');
+    }
     const pwdGenerator = generator.generate({
       length: 16,
       strict: true,
@@ -75,9 +87,10 @@ export class AuthService {
     const salt = await bcrypt.genSalt();
     const hash = await bcrypt.hash(pwdGenerator, salt);
     const newUser = new this.userModel({
-      phone: phone,
-      fullName: phone,
-      username: phone,
+      phone: body.phone ? body.phone : '',
+      email: body.email ? body.email : '',
+      fullName: body.fullName || body.phone || body.email,
+      username: body.phone || body.email,
       password: hash,
     });
     return newUser.save().then(() => {

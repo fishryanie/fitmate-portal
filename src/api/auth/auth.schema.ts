@@ -18,8 +18,11 @@ export class User {
   @Prop({ required: true, default: true })
   gender: boolean;
 
-  @Prop({ required: true })
+  @Prop()
   phone: string;
+
+  @Prop()
+  email: string;
 
   @Prop()
   birthday: string;

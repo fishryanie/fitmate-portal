@@ -1,3 +1,6 @@
+import session from 'express-session';
+import passport from 'passport';
+
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from 'app.module';
@@ -24,6 +27,19 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, configSwagger);
   SwaggerModule.setup('', app, document);
   // app.enableCors();
+
+  app.use(
+    session({
+      secret: 'my-secret',
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        maxAge: 60000,
+      },
+    }),
+  );
+  app.use(passport.initialize());
+  app.use(passport.session());
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(process.env.PORT, async () => {
     console.log(`Application is running on: ${await app.getUrl()}`);

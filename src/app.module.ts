@@ -10,6 +10,7 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MulterModule } from '@nestjs/platform-express';
+import { PassportModule } from '@nestjs/passport';
 import { CommonModule } from '#api/common/common.module';
 import { UserModule } from '#api/auth/auth.module';
 import { TokenMiddleware } from './app.middleware';
@@ -22,6 +23,7 @@ import { GoogleStrategy } from './firebase/strategies/google.strategy';
       envFilePath: '.env',
     }),
     MongooseModule.forRoot(process.env.MONGO_URL),
+    PassportModule.register({ session: true }),
     // MulterModule.register({
     //   storage: diskStorage({
     //     destination: './public',

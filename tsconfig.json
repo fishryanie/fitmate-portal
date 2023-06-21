@@ -21,6 +21,8 @@
       "#mock/*": ["mock/*"],
       "#constant": ["constant"],
       "#constant/*": ["constant/*"],
+      "#firebase": ["firebase"],
+      "#firebase/*": ["firebase/*"],
       "#database": ["database"],
       "#database/*": ["database/*"],
     }
