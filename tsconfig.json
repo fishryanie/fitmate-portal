@@ -23,6 +23,8 @@
       "#constant/*": ["constant/*"],
       "#firebase": ["firebase"],
       "#firebase/*": ["firebase/*"],
+      "#cloudinary": ["cloudinary"],
+      "#cloudinary/*": ["cloudinary/*"],
       "#database": ["database"],
       "#database/*": ["database/*"],
     }
