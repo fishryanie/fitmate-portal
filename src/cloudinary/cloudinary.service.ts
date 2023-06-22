@@ -7,7 +7,7 @@ import {
 import { UploadApiErrorResponse, UploadApiResponse } from 'cloudinary';
 import streamifier from 'streamifier';
 
-type CloudinaryResponse = UploadApiResponse | UploadApiErrorResponse;
+export type CloudinaryResponse = UploadApiResponse | UploadApiErrorResponse;
 type FolderNameType = 'user/picture' | 'product/picture';
 type QualityType = 'auto:low' | 'auto:eco' | 'auto:good' | 'auto:best';
 type ResourceType = 'image' | 'video';
