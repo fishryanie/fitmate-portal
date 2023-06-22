@@ -11,6 +11,7 @@ import { UserController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { EXPIRES_TOKEN } from '#constant';
 import { TokenMiddleware } from 'app.middleware';
+import { CloudinaryService } from 'cloudinary/cloudinary.service';
 
 @Module({
   imports: [
