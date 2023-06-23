@@ -38,6 +38,7 @@ async function bootstrap() {
       },
     }),
   );
+
   app.use(passport.initialize());
   app.use(passport.session());
   app.useGlobalPipes(new ValidationPipe());

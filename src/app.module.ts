@@ -8,8 +8,9 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { PassportModule } from '@nestjs/passport';
-import { CommonModule } from '#api/common/common.module';
 import { UserModule } from '#api/auth/auth.module';
+import { CommonModule } from '#api/common/common.module';
+import { ExerciseModule } from '#api/exercise/exercise.module';
 import { TokenMiddleware } from './app.middleware';
 import { FirebaseStrategy } from './firebase/strategies/firebase.strategy';
 import { GoogleStrategy } from './firebase/strategies/google.strategy';
@@ -25,6 +26,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
     CloudinaryModule,
     UserModule,
     CommonModule,
+    ExerciseModule,
   ],
   providers: [JwtService, FirebaseStrategy, GoogleStrategy],
 })
