@@ -13,7 +13,7 @@ import { CommonModule } from '#api/common/common.module';
 import { ExerciseModule } from '#api/exercise/exercise.module';
 import { TokenMiddleware } from './app.middleware';
 import { FirebaseStrategy } from './firebase/strategies/firebase.strategy';
-import { GoogleStrategy } from './firebase/strategies/google.strategy';
+import { GoogleStrategy } from './api/auth/strategies/socialGoogle.strategy';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 
 @Module({

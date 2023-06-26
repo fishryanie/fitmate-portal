@@ -1,10 +1,29 @@
-import { EXPIRES_OTP } from '#constant';
+/* eslint-disable prettier/prettier */
+import { COLLECTION_NAME, EXPIRES_OTP } from '#constant';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { IsPhoneNumber } from 'class-validator';
+import mongoose, { HydratedDocument } from 'mongoose';
 
-export type UserDocument = User & Document;
+@Schema({
+  collection: COLLECTION_NAME.permission,
+  autoIndex: true,
+  timestamps: true,
+})
+export class Permission {
+  @Prop({ required: true })
+  type: string;
 
-@Schema({ collection: 'user-collection', autoIndex: true, timestamps: true })
+  @Prop({ default: false })
+  read: boolean;
+
+  @Prop({ default: false })
+  write: boolean;
+
+  @Prop({ default: false })
+  delete: boolean;
+}
+
+@Schema({ collection: COLLECTION_NAME.user, autoIndex: true, timestamps: true })
 export class User {
   @Prop({ required: false })
   fullName: string;
@@ -31,8 +50,8 @@ export class User {
   refreshToken: string;
 }
 
-@Schema({ collection: 'otp-collection', timestamps: true })
-export class OtpDocument {
+@Schema({ collection: COLLECTION_NAME.otp, timestamps: true })
+export class Otp {
   @Prop({ required: true })
   otp: string;
 
@@ -49,5 +68,21 @@ export class OtpDocument {
   createdAt: Date;
 }
 
-export const OtpSchema = SchemaFactory.createForClass(OtpDocument);
+@Schema({ collection: COLLECTION_NAME.role, timestamps: true })
+export class Role extends Document {
+  @Prop({ required: true })
+  name: string;
+
+  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: COLLECTION_NAME.permission }] })
+  permissions: string[];
+}
+
+export type OtpDocument = HydratedDocument<Otp>;
+export type UserDocument = HydratedDocument<User>;
+export type RoleDocument = HydratedDocument<Role>;
+export type PermissionDocument = HydratedDocument<Permission>;
+
+export const OtpSchema = SchemaFactory.createForClass(Otp);
+export const RoleSchema = SchemaFactory.createForClass(Role);
 export const UserSchema = SchemaFactory.createForClass(User);
+export const PermissionSchema = SchemaFactory.createForClass(Permission);

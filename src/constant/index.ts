@@ -46,3 +46,10 @@ export const BIG_CATEGORIES_DATA_DEFAULT = [
   { name: 'Workout Plan' },
   { name: 'Supplement' },
 ];
+
+export const COLLECTION_NAME = {
+  otp: 'otp-collection',
+  user: 'user-collection',
+  role: 'role-collection',
+  permission: 'permission-collection',
+};

@@ -1,43 +1,34 @@
-import {
-  Injectable,
-  HttpException,
-  HttpStatus,
-  BadRequestException,
-  NotFoundException,
-  NotAcceptableException,
-} from '@nestjs/common';
+import { Injectable, HttpException, HttpStatus, BadRequestException, NotFoundException, NotAcceptableException } from '@nestjs/common';
 import bcrypt from 'bcrypt';
 import generator from 'generate-password';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
-import { OtpDocument, User, UserDocument } from './auth.schema';
+import { Otp, Permission, Role, RoleDocument, User } from './auth.schema';
 import { EXPIRES_OTP } from '#constant';
-import { UserDto } from './DTO/user.dto';
+import { UserDto } from './dto';
 
 @Injectable()
 export class AuthService {
   constructor(
     private jwtService: JwtService,
     @InjectModel(User.name) private userModel: Model<User>,
-    @InjectModel(OtpDocument.name) private otpModel: Model<OtpDocument>,
+    @InjectModel(Otp.name) private otpModel: Model<Otp>,
+    @InjectModel(Role.name) private roleModel: Model<Role>,
+    @InjectModel(Permission.name)
+    private readonly permissionModel: Model<Permission>,
   ) {}
 
-  private async getTokens(userId: Types.ObjectId, username: string) {
+  /* Auth */
+  async getTokens(userId: Types.ObjectId, username: string) {
     const [accessToken, refreshToken] = await Promise.all([
-      this.jwtService.signAsync(
-        { sub: userId, username },
-        { secret: process.env.JWT_SECRET_KEY, expiresIn: '15m' },
-      ),
-      this.jwtService.signAsync(
-        { sub: userId, username },
-        { secret: process.env.JWT_REFRESH_KEY, expiresIn: '7d' },
-      ),
+      this.jwtService.signAsync({ sub: userId, username }, { secret: process.env.JWT_SECRET_KEY, expiresIn: '15m' }),
+      this.jwtService.signAsync({ sub: userId, username }, { secret: process.env.JWT_REFRESH_KEY, expiresIn: '7d' }),
     ]);
     return { accessToken, refreshToken };
   }
 
-  public async login(username: string, password: string): Promise<any> {
+  async login(username: string, password: string): Promise<any> {
     const foundUser = await this.userModel.findOne({ username }).exec();
     if (!foundUser) {
       throw new NotAcceptableException('Username is incorrect');
@@ -62,6 +53,61 @@ export class AuthService {
       },
     };
   }
+  /* Auth */
+
+  /* Permission */
+  async createPermission(permission: Permission): Promise<Permission> {
+    const createdPermission = new this.permissionModel(permission);
+    return createdPermission.save();
+  }
+
+  async updatePermission(id: string, permission: Permission): Promise<Permission | null> {
+    return this.permissionModel.findByIdAndUpdate(id, permission, { new: true }).exec();
+  }
+
+  async deletePermission(id: string): Promise<Permission | null> {
+    return this.permissionModel.findByIdAndRemove(id).exec();
+  }
+
+  async getPermissionById(id: string): Promise<Permission | null> {
+    return this.permissionModel.findById(id).exec();
+  }
+  /* Permission */
+
+  /* Role */
+  async createRole(role: Role): Promise<Role> {
+    try {
+      const createdRole = new this.roleModel(role);
+      return await createdRole.save();
+    } catch (error) {
+      throw new Error('Không thể tạo vai trò.');
+    }
+  }
+
+  async updateRole(id: string, role: Role): Promise<RoleDocument | null> {
+    try {
+      return await this.roleModel.findByIdAndUpdate(id, role, { new: true }).exec();
+    } catch (error) {
+      throw new NotFoundException('Không tìm thấy vai trò để cập nhật.');
+    }
+  }
+
+  async deleteRole(id: string): Promise<Role | null> {
+    try {
+      return await this.roleModel.findByIdAndRemove(id).exec();
+    } catch (error) {
+      throw new NotFoundException('Không tìm thấy vai trò để xóa.');
+    }
+  }
+
+  async getRoleById(id: string): Promise<Role | null> {
+    try {
+      return await this.roleModel.findById(id).exec();
+    } catch (error) {
+      throw new NotFoundException('Không tìm thấy vai trò.');
+    }
+  }
+  /* Role */
 
   public async signup(body: UserDto) {
     const options = {};
@@ -120,9 +166,7 @@ export class AuthService {
       };
     } catch (error) {
       if (error.code) {
-        throw new BadRequestException(
-          'Please verify your phone number to move to the next step!',
-        );
+        throw new BadRequestException('Please verify your phone number to move to the next step!');
       }
     }
   }
@@ -145,31 +189,20 @@ export class AuthService {
     });
   }
 
-  public async changePassword(
-    userId: string,
-    currentPass: string,
-    newPass: string,
-  ): Promise<any> {
+  public async changePassword(userId: string, currentPass: string, newPass: string): Promise<any> {
     const checkCurrentPass = await this.userModel.findOne({
       password: currentPass,
     });
     if (!checkCurrentPass) {
       throw new BadRequestException('Password is incorrect');
     }
-    const isValidPwd = await bcrypt.compare(
-      currentPass,
-      checkCurrentPass.password,
-    );
+    const isValidPwd = await bcrypt.compare(currentPass, checkCurrentPass.password);
     if (!isValidPwd) {
       throw new BadRequestException('Password is incorrect');
     }
     const salt = await bcrypt.genSalt();
     const hashNewPass = bcrypt.hash(newPass, salt);
-    const result = await this.userModel.findOneAndUpdate(
-      { _id: userId },
-      { password: hashNewPass },
-      { new: true, upsert: true },
-    );
+    const result = await this.userModel.findOneAndUpdate({ _id: userId }, { password: hashNewPass }, { new: true, upsert: true });
     if (!result) {
       throw new NotFoundException('User does not exist');
     }
