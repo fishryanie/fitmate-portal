@@ -24,6 +24,8 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { IsPhoneNumber } from 'class-validator';
 import { GoogleAuthGuard } from '#firebase/guard/google.guard';
 import { PermissionDto, RoleDto, Tokens, UserDto } from './dto';
+import { AuthGuard } from '@nestjs/passport';
+import { Request, Response } from 'express';
 // import { User } from '../model/user.schema';
 
 @ApiTags('/api/v1/auth')
@@ -79,10 +81,7 @@ export class UserController {
   @UseGuards(RtGuard)
   @Post('refresh')
   @HttpCode(HttpStatus.OK)
-  refreshTokens(
-    @GetCurrentUserId() userId: number,
-    @GetCurrentUser('refreshToken') refreshToken: string,
-  ): Promise<Tokens> {
+  refreshTokens(@GetCurrentUserId() userId: number, @GetCurrentUser('refreshToken') refreshToken: string): Promise<Tokens> {
     return this.authService.refreshTokens(userId, refreshToken);
   }
 
@@ -94,15 +93,30 @@ export class UserController {
 
   @Get('google/login')
   @UseGuards(GoogleAuthGuard)
+  @HttpCode(HttpStatus.OK)
   handleLogin() {
     return { msg: 'Google Authentication' };
   }
 
   @Get('google/redirect')
   @UseGuards(GoogleAuthGuard)
+  @HttpCode(HttpStatus.OK)
   handleRedirect() {
     return { msg: 'OK' };
   }
+
+  @UseGuards(AuthGuard('jwt'))
+  @Post('/logout')
+  @HttpCode(HttpStatus.OK)
+  async Logout(@Req() req: Request, @Res() response: Response) {
+    const currentUser = req.user;
+    return response.send(await this.authService.logout(currentUser['id']));
+  }
+
+  @UseGuards(AuthGuard('jwt-refresh'))
+  @Post('/refreshToken')
+  @HttpCode(HttpStatus.OK)
+  async RefreshToken() {}
 
   // @Post('/signup')
   // @HttpCode(HttpStatus.CREATED)

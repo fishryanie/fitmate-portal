@@ -219,4 +219,12 @@ export class AuthService {
   async remove(id: string): Promise<any> {
     return this.userModel.findByIdAndDelete(id).exec();
   }
+
+  async logout(userId: string): Promise<any> {
+    try {
+      return this.userModel.findByIdAndUpdate({ _id: userId }, { refreshToken: null }, { new: true });
+    } catch (error) {
+      throw new Error('Đã có lỗi xảy ra');
+    }
+  }
 }
