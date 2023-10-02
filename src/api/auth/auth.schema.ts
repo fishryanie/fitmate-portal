@@ -69,7 +69,7 @@ export class Otp {
 }
 
 @Schema({ collection: COLLECTION_NAME.role, timestamps: true })
-export class Role extends Document {
+export class Role {
   @Prop({ required: true })
   name: string;
 

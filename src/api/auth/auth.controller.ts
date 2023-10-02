@@ -53,15 +53,15 @@ export class UserController {
     return this.authService.getPermissionById(id);
   }
 
-  @Post()
-  async createRole(@Body() roleDto: RoleDto): Promise<Role> {
-    return this.authService.createRole(roleDto);
-  }
+  // @Post()
+  // async createRole(@Body() roleDto: RoleDto): Promise<Role> {
+  //   return this.authService.createRole(roleDto);
+  // }
 
-  @Put(':id')
-  async updateRole(@Param('id') id: string, @Body() roleDto: RoleDto): Promise<RoleDto> {
-    return this.authService.updateRole(id, roleDto);
-  }
+  // @Put(':id')
+  // async updateRole(@Param('id') id: string, @Body() roleDto: RoleDto): Promise<RoleDto> {
+  //   return this.authService.updateRole(id, roleDto);
+  // }
 
   @Delete(':id')
   async deleteRole(@Param('id') id: string): Promise<Role | null> {
@@ -78,12 +78,12 @@ export class UserController {
     return 'getUser';
   }
 
-  @UseGuards(RtGuard)
-  @Post('refresh')
-  @HttpCode(HttpStatus.OK)
-  refreshTokens(@GetCurrentUserId() userId: number, @GetCurrentUser('refreshToken') refreshToken: string): Promise<Tokens> {
-    return this.authService.refreshTokens(userId, refreshToken);
-  }
+  // @UseGuards(RtGuard)
+  // @Post('refresh')
+  // @HttpCode(HttpStatus.OK)
+  // refreshTokens(@GetCurrentUserId() userId: number, @GetCurrentUser('refreshToken') refreshToken: string): Promise<Tokens> {
+  //   return this.authService.refreshTokens(userId, refreshToken);
+  // }
 
   @Post('/login')
   @HttpCode(HttpStatus.OK)
@@ -113,10 +113,10 @@ export class UserController {
     return response.send(await this.authService.logout(currentUser['id']));
   }
 
-  @UseGuards(AuthGuard('jwt-refresh'))
-  @Post('/refreshToken')
-  @HttpCode(HttpStatus.OK)
-  async RefreshToken() {}
+  // @UseGuards(AuthGuard('jwt-refresh'))
+  // @Post('/refreshToken')
+  // @HttpCode(HttpStatus.OK)
+  // async RefreshToken() {}
 
   // @Post('/signup')
   // @HttpCode(HttpStatus.CREATED)
