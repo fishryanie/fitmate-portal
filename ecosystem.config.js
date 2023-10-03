@@ -1,8 +1,8 @@
 module.exports = {
   apps: [
     {
-      name: 'fitmate',
-      namespace: 'fitmate',
+      name: 'FitMate',
+      namespace: 'FitMate',
       script: './dist/src/main.js',
     },
   ],
