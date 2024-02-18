@@ -1,18 +1,11 @@
 import { JwtService } from '@nestjs/jwt';
-import {
-  Injectable,
-  NestMiddleware,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Injectable, NestMiddleware, UnauthorizedException } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { AuthService } from '#api/auth/auth.service';
 
 @Injectable()
 export class TokenMiddleware implements NestMiddleware {
-  constructor(
-    private jwtService: JwtService,
-    private authService: AuthService,
-  ) {}
+  constructor(private jwtService: JwtService, private authService: AuthService) {}
 
   private extractTokenFromHeader(request: Request): string | undefined {
     const [type, token] = request.headers.authorization?.split(' ') ?? [];

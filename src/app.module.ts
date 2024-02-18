@@ -10,6 +10,8 @@ import { TokenMiddleware } from './app.middleware';
 import { FirebaseStrategy } from './firebase/strategies/firebase.strategy';
 import { GoogleStrategy } from './api/auth/strategies/socialGoogle.strategy';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { TaskModule } from '#api/tasks/module';
+import { RestaurantModule } from '#api/restaurant/module';
 
 @Module({
   imports: [
@@ -24,6 +26,8 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
     UserModule,
     CommonModule,
     ExerciseModule,
+    RestaurantModule,
+    TaskModule,
   ],
   providers: [JwtService, FirebaseStrategy, GoogleStrategy],
 })
