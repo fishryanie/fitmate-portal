@@ -1,20 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpStatus,
-  Param,
-  Post,
-  UploadedFiles,
-  Put,
-  Req,
-  Res,
-  Query,
-  HttpCode,
-  UseInterceptors,
-  UseGuards,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpStatus, Param, Post, Put, Req, Res, Query, HttpCode, UseInterceptors, UseGuards } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { OtpDocument, Permission, Role, User } from './auth.schema';
@@ -26,7 +10,6 @@ import { GoogleAuthGuard } from '#firebase/guard/google.guard';
 import { PermissionDto, RoleDto, Tokens, UserDto } from './dto';
 import { AuthGuard } from '@nestjs/passport';
 import { Request, Response } from 'express';
-// import { User } from '../model/user.schema';
 
 @ApiTags('/api/v1/auth')
 @Controller('/api/v1/auth')

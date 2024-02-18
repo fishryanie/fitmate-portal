@@ -1,8 +1,4 @@
-import {
-  Injectable,
-  NotFoundException,
-  ServiceUnavailableException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException, ServiceUnavailableException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { createReadStream, statSync } from 'fs';
@@ -12,9 +8,7 @@ import { Video, VideoDocument } from './video.schema';
 
 @Injectable()
 export class VideoService {
-  constructor(
-    @InjectModel(Video.name) private videoModel: Model<VideoDocument>,
-  ) {}
+  constructor(@InjectModel(Video.name) private videoModel: Model<VideoDocument>) {}
 
   async createVideo(video: object): Promise<Video> {
     const newVideo = new this.videoModel(video);
@@ -22,10 +16,7 @@ export class VideoService {
   }
   async readVideo(id): Promise<any> {
     if (id.id) {
-      return this.videoModel
-        .findOne({ _id: id.id })
-        .populate('createdBy')
-        .exec();
+      return this.videoModel.findOne({ _id: id.id }).populate('createdBy').exec();
     }
     return this.videoModel.find().populate('createdBy').exec();
   }
@@ -53,10 +44,7 @@ export class VideoService {
           'Content-length': videoLength,
           'Content-Type': 'video/mp4',
         });
-        const vidoeStream = createReadStream(
-          join(process.cwd(), `./public/${video}`),
-          { start, end },
-        );
+        const vidoeStream = createReadStream(join(process.cwd(), `./public/${video}`), { start, end });
         vidoeStream.pipe(response);
       } else {
         throw new NotFoundException(null, 'range not found');
