@@ -1,23 +1,6 @@
 import { VideoService } from 'api/video/video.service';
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpStatus,
-  Param,
-  Post,
-  UseInterceptors,
-  UploadedFiles,
-  Put,
-  Req,
-  Res,
-  Query,
-} from '@nestjs/common';
-import {
-  FileFieldsInterceptor,
-  FilesInterceptor,
-} from '@nestjs/platform-express';
+import { Body, Controller, Delete, Get, HttpStatus, Param, Post, UseInterceptors, UploadedFiles, Put, Req, Res, Query } from '@nestjs/common';
+import { FileFieldsInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { Video } from './video.schema';
 
 @Controller('/api/v1/video')

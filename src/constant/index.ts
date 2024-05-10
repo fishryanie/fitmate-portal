@@ -16,8 +16,7 @@ export const REGEX_NUMBER_FLOAT = /^\d*\.?\d*$/;
 
 export const REGEX_ALPHABET = /^[a-zA-Z ]*$/;
 
-export const REGEX_PWD =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*.?])[A-Za-z\d#$@!%&*.?]{8,30}$/;
+export const REGEX_PWD = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*.?])[A-Za-z\d#$@!%&*.?]{8,30}$/;
 
 export const REGEX_EMAIL =
   /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i;
@@ -47,9 +46,11 @@ export const BIG_CATEGORIES_DATA_DEFAULT = [
   { name: 'Supplement' },
 ];
 
-export const COLLECTION_NAME = {
-  otp: 'otp-collection',
-  user: 'user-collection',
-  role: 'role-collection',
-  permission: 'permission-collection',
-};
+export enum COLLECTION_NAME {
+  otp = 'otp-collection',
+  user = 'user-collection',
+  role = 'role-collection',
+  permission = 'permission-collection',
+  task = 'task-collection',
+  restaurant = 'restaurant-collection',
+}

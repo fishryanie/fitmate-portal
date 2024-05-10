@@ -1,23 +1,11 @@
-import {
-  BadRequestException,
-  HttpException,
-  HttpStatus,
-  Injectable,
-  InternalServerErrorException,
-  NotFoundException,
-} from '@nestjs/common';
+import { BadRequestException, HttpException, HttpStatus, Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 // import otpGenerator from 'otp-generator';
 import generator from 'generate-password';
 import bcrypt from 'bcrypt';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { DATA_LOCATION, DATA_TERMS_POLICY } from '#mock';
-import {
-  TypeDistrict,
-  TypeProvince,
-  TypeTermsPolicy,
-  TypeWard,
-} from '#mock/types';
+import { TypeDistrict, TypeProvince, TypeTermsPolicy, TypeWard } from '#mock/types';
 
 @Injectable()
 export class CommonService {
