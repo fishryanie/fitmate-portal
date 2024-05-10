@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
-import { JwtModule } from '@nestjs/jwt';
 import { MongooseModule } from '@nestjs/mongoose';
-import { TasksController } from './controller';
+import { TaskController } from './controller';
 import { TaskService } from './service';
 import { Task, TaskSchema } from './schema';
+import { COLLECTION_NAME } from '#constant';
 
 @Module({
-  imports: [JwtModule.register({}), MongooseModule.forFeature([{ name: Task.name, schema: TaskSchema }])],
-  controllers: [TasksController],
+  imports: [MongooseModule.forFeature([{ name: COLLECTION_NAME.task, schema: TaskSchema }])],
+  controllers: [TaskController],
   providers: [TaskService],
 })
 export class TaskModule {}

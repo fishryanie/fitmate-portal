@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
-import { JwtModule } from '@nestjs/jwt';
 import { MongooseModule } from '@nestjs/mongoose';
 import { RestaurantController } from './controller';
 import { RestaurantService } from './service';
-import { Restaurant, RestaurantSchema } from './schema';
+import { RestaurantSchema } from './schema';
+import { COLLECTION_NAME } from '#constant';
 
 @Module({
-  imports: [JwtModule.register({}), MongooseModule.forFeature([{ name: Restaurant.name, schema: RestaurantSchema }])],
+  imports: [MongooseModule.forFeature([{ name: COLLECTION_NAME.restaurant, schema: RestaurantSchema }])],
   controllers: [RestaurantController],
   providers: [RestaurantService],
 })

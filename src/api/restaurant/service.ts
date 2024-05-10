@@ -4,10 +4,11 @@ import { Model } from 'mongoose';
 import { Restaurant, RestaurantDocument } from './schema';
 import { RestaurantEntity } from './entity';
 import { HTTP_CODE_METADATA } from '@nestjs/common/constants';
+import { COLLECTION_NAME } from '#constant';
 
 @Injectable()
 export class RestaurantService {
-  constructor(@InjectModel(Restaurant.name) private readonly restaurantModel: Model<RestaurantDocument>) {}
+  constructor(@InjectModel(COLLECTION_NAME.restaurant) private readonly restaurantModel: Model<RestaurantDocument>) {}
   async create(createEmployeeDto: RestaurantEntity): Promise<RestaurantDocument> {
     const employee = new this.restaurantModel(createEmployeeDto);
     return employee.save();
