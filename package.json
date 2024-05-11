@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "description": "Nest TypeScript starter repository",
   "license": "RyanPhan",
-
-
+  "engines": {
+    "node": ">=18.0.0 <=19.6.0"
+  },
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",

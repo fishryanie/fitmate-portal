@@ -19,7 +19,6 @@ async function bootstrap() {
     .build();
 
   const app = await NestFactory.create(AppModule, {
-    cors: true,
     bufferLogs: true,
     logger: ['error', 'warn'],
   });
@@ -27,9 +26,8 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, configSwagger);
   SwaggerModule.setup('', app, document);
   app.enableCors({
-    origin: ['http://localhost:3000', 'https://soulmate-executive.web.app', 'http://192.168.2.13:3000'],
+    origin: ['http://localhost:3000', 'https://soulmate-executive.web.app'],
   });
-
   app.use(
     session({
       secret: 'my-secret',
