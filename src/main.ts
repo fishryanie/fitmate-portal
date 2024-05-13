@@ -41,16 +41,10 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
     credentials: true,
-    allowedHeaders: ['Access-Control-Allow-Origin'],
-    origin: ['https://soulmate-executive.web.app'],
+    allowedHeaders: '*',
+    origin: '*',
   });
-  app.use(function (request: Request, response: Response, next: NextFunction) {
-    // response.setHeader('Access-Control-Allow-Origin', 'https://soulmate-executive.web.app');
-    response.header('Access-Control-Allow-Origin', '*');
-    response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    response.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
-    next();
-  });
+  
   await app.listen(process.env.PORT, async () => {
     console.log(`Application is running on: ${await app.getUrl()}`);
     logger.log('Application started on port 3000');
