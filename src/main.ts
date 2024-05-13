@@ -25,10 +25,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, configSwagger);
   SwaggerModule.setup('', app, document);
-  app.enableCors({
-    allowedHeaders: ['Access-Control-Allow-Origin'],
-    origin: ['http://localhost:3000', 'https://soulmate-executive.web.app'],
-  });
+  
   app.use(
     session({
       secret: 'my-secret',
@@ -39,10 +36,17 @@ async function bootstrap() {
       },
     }),
   );
-
   app.use(passport.initialize());
   app.use(passport.session());
   app.useGlobalPipes(new ValidationPipe());
+  app.enableCors({
+    allowedHeaders: ['Access-Control-Allow-Origin'],
+    origin: ['http://localhost:3000', 'https://soulmate-executive.web.app'],
+  });
+  app.use(function (request: Request, response: Response, next: NextFunction) {
+    response.setHeader('Access-Control-Allow-Origin', 'https://soulmate-executive.web.app');
+    next();
+  });
   await app.listen(process.env.PORT, async () => {
     console.log(`Application is running on: ${await app.getUrl()}`);
     logger.log('Application started on port 3000');
