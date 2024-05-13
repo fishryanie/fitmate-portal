@@ -26,6 +26,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, configSwagger);
   SwaggerModule.setup('', app, document);
   app.enableCors({
+    allowedHeaders: ['Access-Control-Allow-Origin'],
     origin: ['http://localhost:3000', 'https://soulmate-executive.web.app'],
   });
   app.use(
