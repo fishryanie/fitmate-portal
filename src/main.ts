@@ -25,7 +25,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, configSwagger);
   SwaggerModule.setup('', app, document);
-  
+
   // app.use(
   //   session({
   //     secret: 'my-secret',
@@ -44,7 +44,7 @@ async function bootstrap() {
     allowedHeaders: '*',
     origin: '*',
   });
-  
+
   await app.listen(process.env.PORT, async () => {
     console.log(`Application is running on: ${await app.getUrl()}`);
     logger.log('Application started on port 3000');

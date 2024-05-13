@@ -12,7 +12,7 @@ import { GoogleStrategy } from './api/auth/strategies/socialGoogle.strategy';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { RestaurantModule } from '#api/restaurant/module';
 import { TaskModule } from '#api/task/module';
-
+import { LoggerMiddleware } from 'middlewares/LoggerMiddleware';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -33,9 +33,10 @@ import { TaskModule } from '#api/task/module';
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(TokenMiddleware).forRoutes({
-      path: 'api/v1/auth/getUser',
-      method: RequestMethod.GET,
-    });
+    // consumer.apply(TokenMiddleware).forRoutes({
+    //   path: 'api/v1/auth/getUser',
+    //   method: RequestMethod.GET,
+    // });
+    consumer.apply(LoggerMiddleware).forRoutes('*');
   }
 }
