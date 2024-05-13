@@ -26,25 +26,29 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, configSwagger);
   SwaggerModule.setup('', app, document);
   
-  app.use(
-    session({
-      secret: 'my-secret',
-      resave: false,
-      saveUninitialized: false,
-      cookie: {
-        maxAge: 60000,
-      },
-    }),
-  );
-  app.use(passport.initialize());
-  app.use(passport.session());
+  // app.use(
+  //   session({
+  //     secret: 'my-secret',
+  //     resave: false,
+  //     saveUninitialized: false,
+  //     cookie: {
+  //       maxAge: 60000,
+  //     },
+  //   }),
+  // );
+  // app.use(passport.initialize());
+  // app.use(passport.session());
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
+    credentials: true,
     allowedHeaders: ['Access-Control-Allow-Origin'],
-    origin: ['http://localhost:3000', 'https://soulmate-executive.web.app'],
+    origin: ['https://soulmate-executive.web.app'],
   });
   app.use(function (request: Request, response: Response, next: NextFunction) {
-    response.setHeader('Access-Control-Allow-Origin', 'https://soulmate-executive.web.app');
+    // response.setHeader('Access-Control-Allow-Origin', 'https://soulmate-executive.web.app');
+    response.header('Access-Control-Allow-Origin', '*');
+    response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    response.header('Access-Control-Allow-Headers', 'Content-Type, Accept');
     next();
   });
   await app.listen(process.env.PORT, async () => {
