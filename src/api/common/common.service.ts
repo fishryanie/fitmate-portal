@@ -9,7 +9,7 @@ import { TypeDistrict, TypeProvince, TypeTermsPolicy, TypeWard } from '#mock/typ
 
 @Injectable()
 export class CommonService {
-  getConfigs() {
+  getConfig() {
     return {
       success: true,
       message: 'success',

@@ -26,7 +26,7 @@ export class CommonController {
 
   @Get('/config')
   getConfig() {
-    return this.getConfig();
+    return this.commonService.getConfig();
   }
 
   @Get('/getProvince')
