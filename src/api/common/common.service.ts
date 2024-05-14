@@ -9,6 +9,14 @@ import { TypeDistrict, TypeProvince, TypeTermsPolicy, TypeWard } from '#mock/typ
 
 @Injectable()
 export class CommonService {
+  getConfigs() {
+    return {
+      success: true,
+      message: 'success',
+      data: {},
+    };
+  }
+
   getTermsPolicy(language: string | null): TypeTermsPolicy[] {
     return language === 'en' ? DATA_TERMS_POLICY.en : DATA_TERMS_POLICY.vi;
   }

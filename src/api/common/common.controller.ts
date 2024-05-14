@@ -14,15 +14,20 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { TypeDistrict, TypeProvince, TypeTermsPolicy, TypeWard } from '#mock/types';
-import { ApiTags } from '@nestjs/swagger';
 import { CloudinaryService } from 'cloudinary/cloudinary.service';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { CommonService } from './common.service';
+import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Common')
 @Controller('/api/v1/common')
 export class CommonController {
   constructor(private readonly commonService: CommonService, private readonly cloudinaryService: CloudinaryService) {}
+
+  @Get('/config')
+  getConfig() {
+    return this.getConfig();
+  }
 
   @Get('/getProvince')
   getTermsPolicy(): TypeTermsPolicy[] {
