@@ -11,7 +11,7 @@ import { PermissionDto, RoleDto, Tokens, UserDto } from './dto';
 import { AuthGuard } from '@nestjs/passport';
 import { Request, Response } from 'express';
 
-@ApiTags('/api/v1/auth')
+// @ApiTags('/api/v1/auth')
 @Controller('/api/v1/auth')
 export class UserController {
   constructor(private readonly authService: AuthService) {}

@@ -1,5 +1,554 @@
-{
-  "biceps": [
+[
+  {
+    "name": "Barbell Bench Press",
+    "muscles_targeted": ["chest", "triceps", "shoulders"],
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "description": "Lie on a flat bench with a barbell held above your chest. Lower the barbell until it touches your chest, then press it back up to the starting position.",
+    "image_url": "https://example.com/images/barbell_bench_press.jpg"
+  },
+  {
+    "name": "Squats",
+    "muscles_targeted": ["quadriceps", "hamstrings", "glutes"],
+    "equipment": "barbell",
+    "difficulty": "beginner",
+    "description": "Stand with your feet shoulder-width apart. Lower your body as if you're sitting in a chair, then return to the starting position.",
+    "image_url": "https://example.com/images/squats.jpg"
+  },
+  {
+    "name": "Deadlifts",
+    "muscles_targeted": ["back", "hamstrings", "glutes"],
+    "equipment": "barbell",
+    "difficulty": "advanced",
+    "description": "Stand with your feet shoulder-width apart, a barbell on the floor in front of you. Bend at your hips and knees to grab the bar, then lift it by straightening your hips and knees.",
+    "image_url": "https://example.com/images/deadlifts.jpg"
+  },
+  {
+    "name": "Pull-Ups",
+    "muscles_targeted": ["back", "biceps"],
+    "equipment": "pull-up bar",
+    "difficulty": "intermediate",
+    "description": "Grab the pull-up bar with your palms facing away from you. Pull your body up until your chin is above the bar, then lower yourself back down.",
+    "image_url": "https://example.com/images/pull_ups.jpg"
+  },
+  {
+    "name": "Bicep Curls",
+    "muscles_targeted": ["biceps"],
+    "equipment": "dumbbells",
+    "difficulty": "beginner",
+    "description": "Hold a dumbbell in each hand with your arms fully extended. Curl the weights up to shoulder level, then lower them back down.",
+    "image_url": "https://example.com/images/bicep_curls.jpg"
+  },
+  {
+    "name": "Plank",
+    "muscles_targeted": ["core"],
+    "equipment": "none",
+    "difficulty": "beginner",
+    "description": "Lie face down with your forearms on the floor and your feet together. Lift your body off the ground, keeping it in a straight line from head to heels.",
+    "image_url": "https://example.com/images/plank.jpg"
+  },
+  {
+    "name": "Lunges",
+    "muscles_targeted": ["quadriceps", "glutes", "hamstrings"],
+    "equipment": "none",
+    "difficulty": "beginner",
+    "description": "Stand with your feet together. Step forward with one leg and lower your body until both knees are bent at 90 degrees. Return to the starting position and switch legs.",
+    "image_url": "https://example.com/images/lunges.jpg"
+  },
+  {
+    "name": "Shoulder Press",
+    "muscles_targeted": ["shoulders", "triceps"],
+    "equipment": "dumbbells",
+    "difficulty": "intermediate",
+    "description": "Hold a dumbbell in each hand at shoulder level. Press the weights overhead until your arms are fully extended, then lower them back down.",
+    "image_url": "https://example.com/images/shoulder_press.jpg"
+  },
+  {
+    "name": "Tricep Dips",
+    "muscles_targeted": ["triceps"],
+    "equipment": "parallel bars",
+    "difficulty": "intermediate",
+    "description": "Grab the parallel bars and lift your body. Lower your body by bending your elbows until your upper arms are parallel to the floor, then press back up to the starting position.",
+    "image_url": "https://example.com/images/tricep_dips.jpg"
+  },
+  {
+    "name": "Russian Twists",
+    "muscles_targeted": ["core", "obliques"],
+    "equipment": "medicine ball",
+    "difficulty": "intermediate",
+    "description": "Sit on the floor with your knees bent and feet lifted off the ground. Hold a medicine ball with both hands and twist your torso to move the ball from one side to the other.",
+    "image_url": "https://example.com/images/russian_twists.jpg"
+  },
+  {
+    "name": "Leg Press",
+    "muscles_targeted": ["quadriceps", "glutes", "hamstrings"],
+    "equipment": "leg press machine",
+    "difficulty": "intermediate",
+    "description": "Sit on the leg press machine with your feet shoulder-width apart on the platform. Push the platform away by extending your legs, then return to the starting position.",
+    "image_url": "https://example.com/images/leg_press.jpg"
+  },
+  {
+    "name": "Barbell Row",
+    "muscles_targeted": ["back", "biceps"],
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "description": "Stand with your feet shoulder-width apart, bend at your hips and knees to grab the barbell. Pull the barbell towards your abdomen, then lower it back down.",
+    "image_url": "https://example.com/images/barbell_row.jpg"
+  },
+  {
+    "name": "Lat Pulldown",
+    "muscles_targeted": ["back", "biceps"],
+    "equipment": "lat pulldown machine",
+    "difficulty": "beginner",
+    "description": "Sit at the lat pulldown machine and grab the bar with a wide grip. Pull the bar down to your chest, then let it rise back up.",
+    "image_url": "https://example.com/images/lat_pulldown.jpg"
+  },
+  {
+    "name": "Dumbbell Flyes",
+    "muscles_targeted": ["chest"],
+    "equipment": "dumbbells",
+    "difficulty": "intermediate",
+    "description": "Lie on a flat bench holding a dumbbell in each hand above your chest. Lower the weights out to the sides until you feel a stretch in your chest, then bring them back up.",
+    "image_url": "https://example.com/images/dumbbell_flyes.jpg"
+  },
+  {
+    "name": "Cable Crossovers",
+    "muscles_targeted": ["chest"],
+    "equipment": "cable machine",
+    "difficulty": "intermediate",
+    "description": "Stand in the middle of a cable machine with a handle in each hand. Bring the handles together in front of you by crossing your arms, then return to the starting position.",
+    "image_url": "https://example.com/images/cable_crossovers.jpg"
+  },
+  {
+    "name": "Tricep Pushdown",
+    "muscles_targeted": ["triceps"],
+    "equipment": "cable machine",
+    "difficulty": "beginner",
+    "description": "Stand at a cable machine with a straight bar attached. Grab the bar with an overhand grip and push it down until your arms are fully extended, then return to the starting position.",
+    "image_url": "https://example.com/images/tricep_pushdown.jpg"
+  },
+  {
+    "name": "Dumbbell Lateral Raise",
+    "muscles_targeted": ["shoulders"],
+    "equipment": "dumbbells",
+    "difficulty": "intermediate",
+    "description": "Stand with a dumbbell in each hand at your sides. Lift the weights out to the sides until your arms are parallel to the floor, then lower them back down.",
+    "image_url": "https://example.com/images/dumbbell_lateral_raise.jpg"
+  },
+  {
+    "name": "Bent Over Dumbbell Row",
+    "muscles_targeted": ["back", "biceps"],
+    "equipment": "dumbbells",
+    "difficulty": "intermediate",
+    "description": "Stand with your feet shoulder-width apart, bend at your hips and knees with a dumbbell in each hand. Pull the weights towards your abdomen, then lower them back down.",
+    "image_url": "https://example.com/images/bent_over_dumbbell_row.jpg"
+  },
+  {
+    "name": "Seated Cable Row",
+    "muscles_targeted": ["back", "biceps"],
+    "equipment": "cable machine",
+    "difficulty": "beginner",
+    "description": "Sit at a cable row machine with a handle in each hand. Pull the handles towards your abdomen, then return to the starting position.",
+    "image_url": "https://example.com/images/seated_cable_row.jpg"
+  },
+  {
+    "name": "Hammer Curls",
+    "muscles_targeted": ["biceps"],
+    "equipment": "dumbbells",
+    "difficulty": "beginner",
+    "description": "Hold a dumbbell in each hand with your arms fully extended and palms facing each other. Curl the weights up to shoulder level, then lower them back down.",
+    "image_url": "https://example.com/images/hammer_curls.jpg"
+  },
+  {
+    "name": "Cable Bicep Curl",
+    "muscles_targeted": ["biceps"],
+    "equipment": "cable machine",
+    "difficulty": "beginner",
+    "description": "Stand at a cable machine with a straight bar attached to the low pulley. Grab the bar with an underhand grip and curl it up to shoulder level, then lower it back down.",
+    "image_url": "https://example.com/images/cable_bicep_curl.jpg"
+  },
+  {
+    "name": "Chest Press Machine",
+    "muscles_targeted": ["chest", "triceps", "shoulders"],
+    "equipment": "machine",
+    "difficulty": "beginner",
+    "description": "Sit at the chest press machine with handles at chest level. Push the handles forward until your arms are fully extended, then return to the starting position.",
+    "image_url": "https://example.com/images/chest_press_machine.jpg"
+  },
+  {
+    "name": "Pec Deck Fly",
+    "muscles_targeted": ["chest"],
+    "equipment": "pec deck machine",
+    "difficulty": "beginner",
+    "description": "Sit at the pec deck machine with your arms bent and elbows at shoulder level. Bring the handles together in front of you, then return to the starting position.",
+    "image_url": "https://example.com/images/pec_deck_fly.jpg"
+  },
+  {
+    "name": "Leg Curl",
+    "muscles_targeted": ["hamstrings"],
+    "equipment": "leg curl machine",
+    "difficulty": "beginner",
+    "description": "Lie face down on the leg curl machine with your ankles under the pads. Curl your legs up towards your buttocks, then lower them back down.",
+    "image_url": "https://example.com/images/leg_curl.jpg"
+  },
+  {
+    "name": "Leg Extension",
+    "muscles_targeted": ["quadriceps"],
+    "equipment": "leg extension machine",
+    "difficulty": "beginner",
+    "description": "Sit at the leg extension machine with your ankles under the pads. Extend your legs until they are straight, then lower them back down.",
+    "image_url": "https://example.com/images/leg_extension.jpg"
+  },
+  {
+    "name": "Standing Calf Raise",
+    "muscles_targeted": ["calves"],
+    "equipment": "calf raise machine",
+    "difficulty": "beginner",
+    "description": "Stand on the calf raise machine with your shoulders under the pads. Raise your heels as high as possible, then lower them back down.",
+    "image_url": "https://example.com/images/standing_calf_raise.jpg"
+  },
+  {
+    "name": "Seated Calf Raise",
+    "muscles_targeted": ["calves"],
+    "equipment": "seated calf raise machine",
+    "difficulty": "beginner",
+    "description": "Sit at the seated calf raise machine with your knees under the pads. Raise your heels as high as possible, then lower them back down.",
+    "image_url": "https://example.com/images/seated_calf_raise.jpg"
+  },
+  {
+    "name": "Dumbbell Shrugs",
+    "muscles_targeted": ["traps"],
+    "equipment": "dumbbells",
+    "difficulty": "beginner",
+    "description": "Hold a dumbbell in each hand with your arms at your sides. Shrug your shoulders up towards your ears, then lower them back down.",
+    "image_url": "https://example.com/images/dumbbell_shrugs.jpg"
+  },
+  {
+    "name": "Overhead Tricep Extension",
+    "muscles_targeted": ["triceps"],
+    "equipment": "dumbbell",
+    "difficulty": "intermediate",
+    "description": "Hold a dumbbell with both hands above your head. Lower the weight behind your head by bending your elbows, then press it back up to the starting position.",
+    "image_url": "https://example.com/images/overhead_tricep_extension.jpg"
+  },
+  {
+    "name": "Incline Dumbbell Press",
+    "muscles_targeted": ["chest", "triceps", "shoulders"],
+    "equipment": "dumbbells",
+    "difficulty": "intermediate",
+    "description": "Lie on an incline bench holding a dumbbell in each hand above your chest. Lower the weights until they are just outside your chest, then press them back up.",
+    "image_url": "https://example.com/images/incline_dumbbell_press.jpg"
+  },
+  {
+    "name": "Decline Bench Press",
+    "muscles_targeted": ["chest", "triceps", "shoulders"],
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "description": "Lie on a decline bench with a barbell held above your chest. Lower the barbell until it touches your chest, then press it back up to the starting position.",
+    "image_url": "https://example.com/images/decline_bench_press.jpg"
+  },
+  {
+    "name": "Chest Dips",
+    "muscles_targeted": ["chest", "triceps", "shoulders"],
+    "equipment": "parallel bars",
+    "difficulty": "advanced",
+    "description": "Grab the parallel bars and lift your body. Lean forward and lower your body by bending your elbows until your upper arms are parallel to the floor, then press back up to the starting position.",
+    "image_url": "https://example.com/images/chest_dips.jpg"
+  },
+  {
+    "name": "Reverse Flyes",
+    "muscles_targeted": ["shoulders", "upper back"],
+    "equipment": "dumbbells",
+    "difficulty": "intermediate",
+    "description": "Stand with your feet shoulder-width apart and bend at your hips with a dumbbell in each hand. Lift the weights out to the sides until your arms are parallel to the floor, then lower them back down.",
+    "image_url": "https://example.com/images/reverse_flyes.jpg"
+  },
+  {
+    "name": "Cable Upright Row",
+    "muscles_targeted": ["shoulders", "traps"],
+    "equipment": "cable machine",
+    "difficulty": "intermediate",
+    "description": "Stand at a cable machine with a straight bar attached to the low pulley. Grab the bar with an overhand grip and pull it up to shoulder level, then lower it back down.",
+    "image_url": "https://example.com/images/cable_upright_row.jpg"
+  },
+  {
+    "name": "One-Arm Dumbbell Row",
+    "muscles_targeted": ["back", "biceps"],
+    "equipment": "dumbbell",
+    "difficulty": "intermediate",
+    "description": "Place one knee and hand on a bench for support, holding a dumbbell in the other hand. Pull the weight towards your hip, then lower it back down.",
+    "image_url": "https://example.com/images/one_arm_dumbbell_row.jpg"
+  },
+  {
+    "name": "Cable Chest Press",
+    "muscles_targeted": ["chest", "triceps", "shoulders"],
+    "equipment": "cable machine",
+    "difficulty": "intermediate",
+    "description": "Stand in the middle of a cable machine with a handle in each hand. Press the handles forward until your arms are fully extended, then return to the starting position.",
+    "image_url": "https://example.com/images/cable_chest_press.jpg"
+  },
+  {
+    "name": "Leg Raise",
+    "muscles_targeted": ["core"],
+    "equipment": "none",
+    "difficulty": "intermediate",
+    "description": "Lie on your back with your legs straight. Lift your legs towards the ceiling until your hips are off the ground, then lower them back down.",
+    "image_url": "https://example.com/images/leg_raise.jpg"
+  },
+  {
+    "name": "Hanging Leg Raise",
+    "muscles_targeted": ["core"],
+    "equipment": "pull-up bar",
+    "difficulty": "advanced",
+    "description": "Hang from a pull-up bar with your legs straight. Lift your legs towards the ceiling until your hips are off the ground, then lower them back down.",
+    "image_url": "https://example.com/images/hanging_leg_raise.jpg"
+  },
+  {
+    "name": "Flutter Kicks",
+    "muscles_targeted": ["core"],
+    "equipment": "none",
+    "difficulty": "beginner",
+    "description": "Lie on your back with your legs straight. Lift your legs slightly off the ground and kick them up and down in a scissor motion.",
+    "image_url": "https://example.com/images/flutter_kicks.jpg"
+  },
+  {
+    "name": "Side Plank",
+    "muscles_targeted": ["core", "obliques"],
+    "equipment": "none",
+    "difficulty": "intermediate",
+    "description": "Lie on your side with your feet together and one forearm directly below your shoulder. Lift your body off the ground, keeping it in a straight line from head to heels.",
+    "image_url": "https://example.com/images/side_plank.jpg"
+  },
+  {
+    "name": "Mountain Climbers",
+    "muscles_targeted": ["core", "legs"],
+    "equipment": "none",
+    "difficulty": "beginner",
+    "description": "Start in a plank position. Bring one knee towards your chest, then switch legs quickly, as if you're running in place.",
+    "image_url": "https://example.com/images/mountain_climbers.jpg"
+  },
+  {
+    "name": "Jumping Jacks",
+    "muscles_targeted": ["full body"],
+    "equipment": "none",
+    "difficulty": "beginner",
+    "description": "Stand with your feet together and arms at your sides. Jump up, spreading your legs out and raising your arms above your head, then return to the starting position.",
+    "image_url": "https://example.com/images/jumping_jacks.jpg"
+  },
+  {
+    "name": "Burpees",
+    "muscles_targeted": ["full body"],
+    "equipment": "none",
+    "difficulty": "intermediate",
+    "description": "Start in a standing position. Drop into a squat, kick your legs back into a push-up position, perform a push-up, return to the squat position, and then jump up.",
+    "image_url": "https://example.com/images/burpees.jpg"
+  },
+  {
+    "name": "High Knees",
+    "muscles_targeted": ["legs", "core"],
+    "equipment": "none",
+    "difficulty": "beginner",
+    "description": "Run in place, bringing your knees up towards your chest as high as possible.",
+    "image_url": "https://example.com/images/high_knees.jpg"
+  },
+  {
+    "name": "Box Jumps",
+    "muscles_targeted": ["legs", "glutes", "core"],
+    "equipment": "plyo box",
+    "difficulty": "intermediate",
+    "description": "Stand in front of a box or platform. Jump onto the box, landing with both feet, then step or jump back down.",
+    "image_url": "https://example.com/images/box_jumps.jpg"
+  },
+  {
+    "name": "Battle Ropes",
+    "muscles_targeted": ["full body"],
+    "equipment": "battle ropes",
+    "difficulty": "intermediate",
+    "description": "Hold a battle rope in each hand. Alternately wave the ropes up and down, creating a wave-like motion.",
+    "image_url": "https://example.com/images/battle_ropes.jpg"
+  },
+  {
+    "name": "Kettlebell Swings",
+    "muscles_targeted": ["legs", "core", "shoulders"],
+    "equipment": "kettlebell",
+    "difficulty": "intermediate",
+    "description": "Stand with your feet shoulder-width apart, holding a kettlebell with both hands. Swing the kettlebell between your legs, then thrust your hips forward to swing it up to shoulder level.",
+    "image_url": "https://example.com/images/kettlebell_swings.jpg"
+  },
+  {
+    "name": "TRX Rows",
+    "muscles_targeted": ["back", "biceps"],
+    "equipment": "TRX",
+    "difficulty": "intermediate",
+    "description": "Hold the TRX handles with your palms facing each other. Lean back, keeping your body straight, and pull your chest towards the handles, then return to the starting position.",
+    "image_url": "https://example.com/images/trx_rows.jpg"
+  },
+  {
+    "name": "TRX Push-Ups",
+    "muscles_targeted": ["chest", "triceps", "core"],
+    "equipment": "TRX",
+    "difficulty": "intermediate",
+    "description": "Hold the TRX handles with your palms facing down. Lower your body by bending your elbows until your chest is between your hands, then press back up to the starting position.",
+    "image_url": "https://example.com/images/trx_push_ups.jpg"
+  },
+  {
+    "name": "Triceps dip",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "body_only",
+    "difficulty": "intermediate",
+    "instructions": "To get into the starting position, hold your body at arm's length with your arms nearly locked above the bars. Now, inhale and slowly lower yourself downward. Your torso should remain upright and your elbows should stay close to your body. This helps to better focus on tricep involvement. Lower yourself until there is a 90 degree angle formed between the upper arm and forearm. Then, exhale and push your torso back up using your triceps to bring your body back to the starting position. Repeat the movement for the prescribed amount of repetitions.  Variations: If you are new at this exercise and do not have the strength to perform it, use a dip assist machine if available. These machines use weight to help you push your bodyweight. Otherwise, a spotter holding your legs can help. More advanced lifters can add weight to the exercise by using a weight belt that allows the addition of weighted plates."
+  },
+  {
+    "name": "Decline EZ-bar skullcrusher",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "e-z_curl_bar",
+    "difficulty": "intermediate",
+    "instructions": "Secure your legs at the end of the decline bench and slowly lay down on the bench. Using a close grip (a grip that is slightly less than shoulder width), lift the EZ bar from the rack and hold it straight over you with your arms locked and elbows in. The arms should be perpendicular to the floor. This will be your starting position. Tip: In order to protect your rotator cuff, it is best if you have a spotter help you lift the barbell off the rack. As you breathe in and you keep the upper arms stationary, bring the bar down slowly by moving your forearms in a semicircular motion towards you until you feel the bar slightly touch your forehead. Breathe in as you perform this portion of the movement. Lift the bar back to the starting position by contracting the triceps and exhaling. Repeat until the recommended amount of repetitions is performed.  Variations: You can use a straight bar or dumbbells to perform this movement. You can also perform it on a flat bench as well."
+  },
+  {
+    "name": "Dumbbell floor press",
+    "type": "powerlifting",
+    "muscle": "triceps",
+    "equipment": "dumbbell",
+    "difficulty": "intermediate",
+    "instructions": "Lay on the floor holding dumbbells in your hands. Your knees can be bent. Begin with the weights fully extended above you. Lower the weights until your upper arm comes in contact with the floor. You can tuck your elbows to emphasize triceps size and strength, or to focus on your chest angle your arms to the side. Pause at the bottom, and then bring the weight together at the top by extending through the elbows."
+  },
+  {
+    "name": "Cable V-bar push-down",
+    "muscle": "triceps",
+    "equipment": "cable",
+    "difficulty": "intermediate",
+    "instructions": "Attach a V-Bar to a high pulley and grab with an overhand grip (palms facing down) at shoulder width. Standing upright with the torso straight and a very small inclination forward, bring the upper arms close to your body and perpendicular to the floor. The forearms should be pointing up towards the pulley as they hold the bar. The thumbs should be higher than the small finger. This is your starting position. Using the triceps, bring the bar down until it touches the front of your thighs and the arms are fully extended perpendicular to the floor. The upper arms should always remain stationary next to your torso and only the forearms should move. Exhale as you perform this movement. After a second hold at the contracted position, bring the V-Bar slowly up to the starting point. Breathe in as you perform this step. Repeat for the recommended amount of repetitions.  Variations: There are many variations to this movement. For instance you can use an E-Z bar attachment as well as a straight cable bar attachment for different variations of the exercise. Also, you can attach a rope to the pulley as well as using a reverse grip on the bar exercises. Just like the Triceps Pushdown but with the V-Bar attachment."
+  },
+  {
+    "name": "Weighted bench dip",
+    "muscle": "triceps",
+    "equipment": "body_only",
+    "difficulty": "intermediate",
+    "instructions": "For this exercise you will need to place a bench behind your back and another one in front of you. With the benches perpendicular to your body, hold on to one bench on its edge with the hands close to your body, separated at shoulder width. Your arms should be fully extended. The legs will be extended forward on top of the other bench. Your legs should be parallel to the floor while your torso is to be perpendicular to the floor. Have your partner place the dumbbell on your lap. Note: This exercise is best performed with a partner as placing the weight on your lap can be challenging and cause injury without assistance. This will be your starting position. Slowly lower your body as you inhale by bending at the elbows until you lower yourself far enough to where there is an angle slightly smaller than 90 degrees between the upper arm and the forearm. Tip: Keep the elbows as close as possible throughout the movement. Forearms should always be pointing down. Using your triceps to bring your torso up again, lift yourself back to the starting position while exhaling. Repeat for the recommended amount of repetitions.  Caution: By placing your legs on top of another flat bench in front of you, the exercise becomes more challenging. It is best to attempt this exercise without any weights at first in order to get used to the movements required for good form. If that variation also becomes easy, then you can have a partner place plates on top of your lap. Make sure that in this case the partner ensures that the weights stay there throughout the movement."
+  },
+  {
+    "name": "EZ-Bar Skullcrusher",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "e-z_curl_bar",
+    "difficulty": "intermediate",
+    "instructions": "Using a close grip, lift the EZ bar and hold it with your elbows in as you lie on the bench. Your arms should be perpendicular to the floor. This will be your starting position. Keeping the upper arms stationary, lower the bar by allowing the elbows to flex. Inhale as you perform this portion of the movement. Pause once the bar is directly above the forehead. Lift the bar back to the starting position by extending the elbow and exhaling. Repeat."
+  },
+  {
+    "name": "Reverse Grip Triceps Pushdown",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "cable",
+    "difficulty": "intermediate",
+    "instructions": "Start by setting a bar attachment (straight or e-z) on a high pulley machine. Facing the bar attachment, grab it with the palms facing up (supinated grip) at shoulder width. Lower the bar by using your lats until your arms are fully extended by your sides. Tip: Elbows should be in by your sides and your feet should be shoulder width apart from each other. This is the starting position. Slowly elevate the bar attachment up as you inhale so it is aligned with your chest. Only the forearms should move and the elbows/upper arms should be stationary by your side at all times. Then begin to lower the cable bar back down to the original staring position while exhaling and contracting the triceps hard. Repeat for the recommended amount of repetitions.  Variation: This exercise can also be performed with a single handle using one arm at a time. This will allow you to better isolate the triceps. With this version you can self spot yourself by placing your hand over your forearm and applying some pressure to help you perform more reps than before."
+  },
+  {
+    "name": "Push-Ups - Close Triceps Position",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "body_only",
+    "difficulty": "intermediate",
+    "instructions": "Lie on the floor face down and place your hands closer than shoulder width for a close hand position. Make sure that you are holding your torso up at arms' length. Lower yourself until your chest almost touches the floor as you inhale. Using your triceps and some of your pectoral muscles, press your upper body back up to the starting position and squeeze your chest. Breathe out as you perform this step. After a second pause at the contracted position, repeat the movement for the prescribed amount of repetitions.  Variations:  If you are new at this exercise and do not have the strength to perform it, you can either bend your legs at the knees to take off resistance or perform the exercise against the wall instead of the floor. For the most advanced lifters, you can place your feet at a high surface such as a bench in order to increase the resistance.  See Also: Push-Up"
+  },
+  {
+    "name": "Kneeling cable triceps extension",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "cable",
+    "difficulty": "intermediate",
+    "instructions": "Place a bench sideways in front of a high pulley machine. Hold a straight bar attachment above your head with your hands about 6 inches apart with your palms facing down. Face away from the machine and kneel. Place your head and the back of your upper arms on the bench. Your elbows should be bent with the forearms pointing towards the high pulley. This will be your starting position. While keeping your upper arms close to your head at all times with the elbows in, press the bar out in a semicircular motion until the elbows are locked and your arms are parallel to the floor. Contract the triceps hard and keep this position for a second. Exhale as you perform this movement. Slowly return to the starting position as you breathe in. Repeat for the recommended amount of repetitions.  Variation: You can also perform this exercise with exercise bands."
+  },
+  {
+    "name": "Single-arm cable triceps extension",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "cable",
+    "difficulty": "intermediate",
+    "instructions": "With your right hand, grasp a single handle attached to the high-cable pulley using a supinated (underhand; palms facing up) grip. You should be standing directly in front of the weight stack. Now pull the handle down so that your upper arm and elbow are locked in to the side of your body. Your upper arm and forearm should form an acute angle (less than 90-degrees). You can keep the other arm by the waist and you can have one leg in front of you and the other one back for better balance. This will be your starting position. As you contract the triceps, move the single handle attachment down to your side until your arm is straight. Breathe out as you perform this movement. Tip: Only the forearms should move. Your upper arms should remain stationary at all times. Squeeze the triceps and hold for a second in this contracted position. Slowly return the handle to the starting position. Repeat for the recommended amount of repetitions and then perform the same movement with the other arm.  Variations: You can use exercise bands to perform this exercise."
+  },
+  {
+    "name": "Triceps Pushdown - Rope Attachment",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "None",
+    "difficulty": "intermediate",
+    "instructions": "Attach a rope attachment to a high pulley and grab with a neutral grip (palms facing each other). Standing upright with the torso straight and a very small inclination forward, bring the upper arms close to your body and perpendicular to the floor. The forearms should be pointing up towards the pulley as they hold the rope with the palms facing each other. This is your starting position. Using the triceps, bring the rope down as you bring each side of the rope to the side of your thighs. At the end of the movement the arms are fully extended and perpendicular to the floor. The upper arms should always remain stationary next to your torso and only the forearms should move. Exhale as you perform this movement. After holding for a second, at the contracted position, bring the rope slowly up to the starting point. Breathe in as you perform this step. Repeat for the recommended amount of repetitions.  Variations: There are many variations to this movement. For instance you can use an E-Z bar attachment as well as a V-angled bar or straight bar. Same as the Triceps Pushdown except with the rope attachment."
+  },
+  {
+    "name": "Seated triceps press",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "dumbbell",
+    "difficulty": "intermediate",
+    "instructions": "Sit down on a bench with back support and grasp a dumbbell with both hands and hold it overhead at arm's length. Tip: a better way is to have somebody hand it to you especially if it is very heavy. The resistance should be resting in the palms of your hands with your thumbs around it. The palm of the hand should be facing inward. This will be your starting position. Keeping your upper arms close to your head (elbows in) and perpendicular to the floor, lower the resistance in a semi-circular motion behind your head until your forearms touch your biceps. Tip: The upper arms should remain stationary and only the forearms should move. Breathe in as you perform this step. Go back to the starting position by using the triceps to raise the dumbbell. Breathe out as you perform this step. Repeat for the recommended amount of repetitions.  Variations:  You can perform this exercise standing as well but this puts strain on your back especially if you are using heavy dumbbells like 95 lbs or so. Another variation is to use an EZ or straight bar instead in which case you will be holding the bar from the inside (around 5 inches between both hands) with the palms facing forward (pronated grip). There is also a bar that has parallel bars inside (often referred to as a triceps blaster) and this can also be used for this exercise. Finally, a low pulley cable with a rope attachment or bar (straight or EZ) attachment at the end can be used for variety purposes as well."
+  },
+  {
+    "name": "Incline EZ-bar skullcrusher",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "barbell",
+    "difficulty": "intermediate",
+    "instructions": "Hold a barbell with an overhand grip (palms down) that is a little closer together than shoulder width. Lie back on an incline bench set at any angle between 45-75-degrees. Bring the bar overhead with your arms extended and elbows in. The arms should be in line with the torso above the head. This will be your starting position. Now lower the bar in a semicircular motion behind your head until your forearms touch your biceps. Inhale as you perform this movement. Tip: Keep your upper arms stationary and close to your head at all times. Only the forearms should move. Return to the starting position as you breathe out and you contract the triceps. Hold the contraction for a second. Repeat for the recommended amount of repetitions.  Variations: Can also be done with an e-z bar, with two dumbbells (using a pronated or supinated grip), seated or standing or with two dumbbells and your palms facing in."
+  },
+  {
+    "name": "Decline Close-Grip Bench To Skull Crusher",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "barbell",
+    "difficulty": "beginner",
+    "instructions": "Secure your legs at the end of the decline bench and slowly lay down on the bench. Using a close grip (a grip that is slightly less than shoulder width), lift the bar from the rack and hold it straight over you with your arms locked and elbows in. The arms should be perpendicular to the floor. This will be your starting position. Tip: In order to protect your rotator cuff, it is best if you have a spotter help you lift the barbell off the rack. Now lower the bar down to your lower chest as you breathe in. Keep the elbows in as you perform this movement. Using the triceps to push the bar back up, press it back to the starting position as you exhale. As you breathe in and you keep the upper arms stationary, bring the bar down slowly by moving your forearms in a semicircular motion towards you until you feel the bar slightly touch your forehead. Breathe in as you perform this portion of the movement. Lift the bar back to the starting position by contracting the triceps and exhaling. Repeat steps 3-6 until the recommended amount of repetitions is performed.  Variations: You can use an e-z bar or dumbbells to perform this movement. You can also perform it on a flat bench as well."
+  },
+  {
+    "name": "Tricep Dumbbell Kickback",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "dumbbell",
+    "difficulty": "intermediate",
+    "instructions": "Start with a dumbbell in each hand and your palms facing your torso. Keep your back straight with a slight bend in the knees and bend forward at the waist. Your torso should be almost parallel to the floor. Make sure to keep your head up. Your upper arms should be close to your torso and parallel to the floor. Your forearms should be pointed towards the floor as you hold the weights. There should be a 90-degree angle formed between your forearm and upper arm. This is your starting position. Now, while keeping your upper arms stationary, exhale and use your triceps to lift the weights until the arm is fully extended. Focus on moving the forearm. After a brief pause at the top contraction, inhale and slowly lower the dumbbells back down to the starting position. Repeat the movement for the prescribed amount of repetitions.  Variations: This exercise can be executed also one arm at a time much like the one arm rows are performed. Also, if you like the one arm variety, you can use a low pulley handle instead of a dumbbell for better peak contraction. In this case, the palms should be facing up (supinated grip) as opposed to the torso (neutral grip)."
+  },
+  {
+    "name": "Dip Machine",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "cable",
+    "difficulty": "intermediate",
+    "instructions": "Sit securely in a dip machine, select the weight and firmly grasp the handles. Now keep your elbows in at your sides in order to place emphasis on the triceps. The elbows should be bent at a 90 degree angle. As you contract the triceps, extend your arms downwards as you exhale. Tip: At the bottom of the movement, focus on keeping a little bend in your arms to keep tension on the triceps muscle. Now slowly let your arms come back up to the starting position as you inhale. Repeat for the recommended amount of repetitions.  Variations: You can perform this exercise on parallel bars or on a triceps dip assist machine."
+  },
+  {
+    "name": "Standing Dumbbell Triceps Extension",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "dumbbell",
+    "difficulty": "intermediate",
+    "instructions": "Standing Dumbbell Triceps Extension"
+  },
+  {
+    "name": "Parallel Bar Dip",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "body_only",
+    "difficulty": "intermediate",
+    "instructions": "Stand between a set of parallel bars. Place a hand on each bar, and then take a small jump to help you get into the starting position with your arms locked out. Begin by flexing the elbow, lowering your body until your arms break 90 degrees. Avoid swinging, and maintain good posture throughout the descent. Reverse the motion by extending the elbow, pushing yourself back up into the starting position. Repeat for the desired number of repetitions."
+  },
+  {
+    "name": "Ring dip",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "body_only",
+    "difficulty": "intermediate",
+    "instructions": "Grip a ring in each hand, and then take a small jump to help you get into the starting position with your arms locked out. Begin by flexing the elbow, lowering your body until your arms break 90 degrees. Avoid swinging, and maintain good posture throughout the descent. Reverse the motion by extending the elbow, pushing yourself back up into the starting position. Repeat for the desired number of repetitions."
+  },
+  {
+    "name": "Double-arm triceps kick-back",
+    "type": "strength",
+    "muscle": "triceps",
+    "equipment": "dumbbell",
+    "difficulty": "intermediate",
+    "instructions": "With a dumbbell in each hand and the palms facing your torso, bend your knees slightly and bring your torso forward, by bending at the waist, while keeping the back straight until it is almost parallel to the floor. Make sure that you keep the head up. The upper arms should be close to the torso and parallel to the floor while the forearms are pointing towards the floor as the hands hold the weights. Tip: There should be a 90-degree angle between the forearms and the upper arm. This is your starting position. Keeping the upper arms stationary, use the triceps to lift the weights as you exhale until the forearms are parallel to the floor and the whole arms are extended. Like many other arm exercises, only the forearm moves. After a second contraction at the top, slowly lower the dumbbells back to their starting position as you inhale. Repeat the movement for the prescribed amount of repetitions.  Variations:  This exercise can be executed also one arm at a time. Also, if you like the one arm variety, you can use a single hand handle or rope attachment instead of a dumbbell for better peak contraction. In this case of the single hand handle, the palms should be facing up as opposed to the torso."
+  },
   {
     "name": "Incline Hammer Curls",
     "type": "strength",
@@ -256,168 +805,4 @@
     "difficulty": "beginner",
     "instructions": "Grab a straight bar or E-Z bar attachment that is attached to the low pulley with both hands, using an underhand (palms facing up) shoulder-width grip. Lie flat on your back on top of an exercise mat in front of the weight stack with your feet flat against the frame of the pulley machine and your legs straight. With your arms extended and your elbows close to your body slightly bend your arms. This will be your starting position. While keeping your upper arms stationary and the elbows close to your body, curl the bar up slowly toward your chest as you breathe out and you squeeze the biceps. After a second squeeze at the top of the movement, slowly return to the starting position. Repeat for the recommended amount of repetitions.  Variations: You can also perform this exercise with exercise bands."
   }
-  ],
-
-  "triceps": [
-    {
-      "name": "Triceps dip",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "body_only",
-      "difficulty": "intermediate",
-      "instructions": "To get into the starting position, hold your body at arm's length with your arms nearly locked above the bars. Now, inhale and slowly lower yourself downward. Your torso should remain upright and your elbows should stay close to your body. This helps to better focus on tricep involvement. Lower yourself until there is a 90 degree angle formed between the upper arm and forearm. Then, exhale and push your torso back up using your triceps to bring your body back to the starting position. Repeat the movement for the prescribed amount of repetitions.  Variations: If you are new at this exercise and do not have the strength to perform it, use a dip assist machine if available. These machines use weight to help you push your bodyweight. Otherwise, a spotter holding your legs can help. More advanced lifters can add weight to the exercise by using a weight belt that allows the addition of weighted plates."
-    },
-    {
-      "name": "Decline EZ-bar skullcrusher",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "e-z_curl_bar",
-      "difficulty": "intermediate",
-      "instructions": "Secure your legs at the end of the decline bench and slowly lay down on the bench. Using a close grip (a grip that is slightly less than shoulder width), lift the EZ bar from the rack and hold it straight over you with your arms locked and elbows in. The arms should be perpendicular to the floor. This will be your starting position. Tip: In order to protect your rotator cuff, it is best if you have a spotter help you lift the barbell off the rack. As you breathe in and you keep the upper arms stationary, bring the bar down slowly by moving your forearms in a semicircular motion towards you until you feel the bar slightly touch your forehead. Breathe in as you perform this portion of the movement. Lift the bar back to the starting position by contracting the triceps and exhaling. Repeat until the recommended amount of repetitions is performed.  Variations: You can use a straight bar or dumbbells to perform this movement. You can also perform it on a flat bench as well."
-    },
-    {
-      "name": "Dumbbell floor press",
-      "type": "powerlifting",
-      "muscle": "triceps",
-      "equipment": "dumbbell",
-      "difficulty": "intermediate",
-      "instructions": "Lay on the floor holding dumbbells in your hands. Your knees can be bent. Begin with the weights fully extended above you. Lower the weights until your upper arm comes in contact with the floor. You can tuck your elbows to emphasize triceps size and strength, or to focus on your chest angle your arms to the side. Pause at the bottom, and then bring the weight together at the top by extending through the elbows."
-    },
-    {
-      "name": "Cable V-bar push-down",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "cable",
-      "difficulty": "intermediate",
-      "instructions": "Attach a V-Bar to a high pulley and grab with an overhand grip (palms facing down) at shoulder width. Standing upright with the torso straight and a very small inclination forward, bring the upper arms close to your body and perpendicular to the floor. The forearms should be pointing up towards the pulley as they hold the bar. The thumbs should be higher than the small finger. This is your starting position. Using the triceps, bring the bar down until it touches the front of your thighs and the arms are fully extended perpendicular to the floor. The upper arms should always remain stationary next to your torso and only the forearms should move. Exhale as you perform this movement. After a second hold at the contracted position, bring the V-Bar slowly up to the starting point. Breathe in as you perform this step. Repeat for the recommended amount of repetitions.  Variations: There are many variations to this movement. For instance you can use an E-Z bar attachment as well as a straight cable bar attachment for different variations of the exercise. Also, you can attach a rope to the pulley as well as using a reverse grip on the bar exercises. Just like the Triceps Pushdown but with the V-Bar attachment."
-    },
-    {
-      "name": "Weighted bench dip",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "body_only",
-      "difficulty": "intermediate",
-      "instructions": "For this exercise you will need to place a bench behind your back and another one in front of you. With the benches perpendicular to your body, hold on to one bench on its edge with the hands close to your body, separated at shoulder width. Your arms should be fully extended. The legs will be extended forward on top of the other bench. Your legs should be parallel to the floor while your torso is to be perpendicular to the floor. Have your partner place the dumbbell on your lap. Note: This exercise is best performed with a partner as placing the weight on your lap can be challenging and cause injury without assistance. This will be your starting position. Slowly lower your body as you inhale by bending at the elbows until you lower yourself far enough to where there is an angle slightly smaller than 90 degrees between the upper arm and the forearm. Tip: Keep the elbows as close as possible throughout the movement. Forearms should always be pointing down. Using your triceps to bring your torso up again, lift yourself back to the starting position while exhaling. Repeat for the recommended amount of repetitions.  Caution: By placing your legs on top of another flat bench in front of you, the exercise becomes more challenging. It is best to attempt this exercise without any weights at first in order to get used to the movements required for good form. If that variation also becomes easy, then you can have a partner place plates on top of your lap. Make sure that in this case the partner ensures that the weights stay there throughout the movement."
-    },
-    {
-      "name": "EZ-Bar Skullcrusher",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "e-z_curl_bar",
-      "difficulty": "intermediate",
-      "instructions": "Using a close grip, lift the EZ bar and hold it with your elbows in as you lie on the bench. Your arms should be perpendicular to the floor. This will be your starting position. Keeping the upper arms stationary, lower the bar by allowing the elbows to flex. Inhale as you perform this portion of the movement. Pause once the bar is directly above the forehead. Lift the bar back to the starting position by extending the elbow and exhaling. Repeat."
-    },
-    {
-      "name": "Reverse Grip Triceps Pushdown",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "cable",
-      "difficulty": "intermediate",
-      "instructions": "Start by setting a bar attachment (straight or e-z) on a high pulley machine. Facing the bar attachment, grab it with the palms facing up (supinated grip) at shoulder width. Lower the bar by using your lats until your arms are fully extended by your sides. Tip: Elbows should be in by your sides and your feet should be shoulder width apart from each other. This is the starting position. Slowly elevate the bar attachment up as you inhale so it is aligned with your chest. Only the forearms should move and the elbows/upper arms should be stationary by your side at all times. Then begin to lower the cable bar back down to the original staring position while exhaling and contracting the triceps hard. Repeat for the recommended amount of repetitions.  Variation: This exercise can also be performed with a single handle using one arm at a time. This will allow you to better isolate the triceps. With this version you can self spot yourself by placing your hand over your forearm and applying some pressure to help you perform more reps than before."
-    },
-    {
-      "name": "Push-Ups - Close Triceps Position",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "body_only",
-      "difficulty": "intermediate",
-      "instructions": "Lie on the floor face down and place your hands closer than shoulder width for a close hand position. Make sure that you are holding your torso up at arms' length. Lower yourself until your chest almost touches the floor as you inhale. Using your triceps and some of your pectoral muscles, press your upper body back up to the starting position and squeeze your chest. Breathe out as you perform this step. After a second pause at the contracted position, repeat the movement for the prescribed amount of repetitions.  Variations:  If you are new at this exercise and do not have the strength to perform it, you can either bend your legs at the knees to take off resistance or perform the exercise against the wall instead of the floor. For the most advanced lifters, you can place your feet at a high surface such as a bench in order to increase the resistance.  See Also: Push-Up"
-    },
-    {
-      "name": "Kneeling cable triceps extension",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "cable",
-      "difficulty": "intermediate",
-      "instructions": "Place a bench sideways in front of a high pulley machine. Hold a straight bar attachment above your head with your hands about 6 inches apart with your palms facing down. Face away from the machine and kneel. Place your head and the back of your upper arms on the bench. Your elbows should be bent with the forearms pointing towards the high pulley. This will be your starting position. While keeping your upper arms close to your head at all times with the elbows in, press the bar out in a semicircular motion until the elbows are locked and your arms are parallel to the floor. Contract the triceps hard and keep this position for a second. Exhale as you perform this movement. Slowly return to the starting position as you breathe in. Repeat for the recommended amount of repetitions.  Variation: You can also perform this exercise with exercise bands."
-    },
-    {
-      "name": "Single-arm cable triceps extension",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "cable",
-      "difficulty": "intermediate",
-      "instructions": "With your right hand, grasp a single handle attached to the high-cable pulley using a supinated (underhand; palms facing up) grip. You should be standing directly in front of the weight stack. Now pull the handle down so that your upper arm and elbow are locked in to the side of your body. Your upper arm and forearm should form an acute angle (less than 90-degrees). You can keep the other arm by the waist and you can have one leg in front of you and the other one back for better balance. This will be your starting position. As you contract the triceps, move the single handle attachment down to your side until your arm is straight. Breathe out as you perform this movement. Tip: Only the forearms should move. Your upper arms should remain stationary at all times. Squeeze the triceps and hold for a second in this contracted position. Slowly return the handle to the starting position. Repeat for the recommended amount of repetitions and then perform the same movement with the other arm.  Variations: You can use exercise bands to perform this exercise."
-    },
-    {
-      "name": "Triceps Pushdown - Rope Attachment",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "None",
-      "difficulty": "intermediate",
-      "instructions": "Attach a rope attachment to a high pulley and grab with a neutral grip (palms facing each other). Standing upright with the torso straight and a very small inclination forward, bring the upper arms close to your body and perpendicular to the floor. The forearms should be pointing up towards the pulley as they hold the rope with the palms facing each other. This is your starting position. Using the triceps, bring the rope down as you bring each side of the rope to the side of your thighs. At the end of the movement the arms are fully extended and perpendicular to the floor. The upper arms should always remain stationary next to your torso and only the forearms should move. Exhale as you perform this movement. After holding for a second, at the contracted position, bring the rope slowly up to the starting point. Breathe in as you perform this step. Repeat for the recommended amount of repetitions.  Variations: There are many variations to this movement. For instance you can use an E-Z bar attachment as well as a V-angled bar or straight bar. Same as the Triceps Pushdown except with the rope attachment."
-    },
-    {
-      "name": "Seated triceps press",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "dumbbell",
-      "difficulty": "intermediate",
-      "instructions": "Sit down on a bench with back support and grasp a dumbbell with both hands and hold it overhead at arm's length. Tip: a better way is to have somebody hand it to you especially if it is very heavy. The resistance should be resting in the palms of your hands with your thumbs around it. The palm of the hand should be facing inward. This will be your starting position. Keeping your upper arms close to your head (elbows in) and perpendicular to the floor, lower the resistance in a semi-circular motion behind your head until your forearms touch your biceps. Tip: The upper arms should remain stationary and only the forearms should move. Breathe in as you perform this step. Go back to the starting position by using the triceps to raise the dumbbell. Breathe out as you perform this step. Repeat for the recommended amount of repetitions.  Variations:  You can perform this exercise standing as well but this puts strain on your back especially if you are using heavy dumbbells like 95 lbs or so. Another variation is to use an EZ or straight bar instead in which case you will be holding the bar from the inside (around 5 inches between both hands) with the palms facing forward (pronated grip). There is also a bar that has parallel bars inside (often referred to as a triceps blaster) and this can also be used for this exercise. Finally, a low pulley cable with a rope attachment or bar (straight or EZ) attachment at the end can be used for variety purposes as well."
-    },
-    {
-      "name": "Incline EZ-bar skullcrusher",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "barbell",
-      "difficulty": "intermediate",
-      "instructions": "Hold a barbell with an overhand grip (palms down) that is a little closer together than shoulder width. Lie back on an incline bench set at any angle between 45-75-degrees. Bring the bar overhead with your arms extended and elbows in. The arms should be in line with the torso above the head. This will be your starting position. Now lower the bar in a semicircular motion behind your head until your forearms touch your biceps. Inhale as you perform this movement. Tip: Keep your upper arms stationary and close to your head at all times. Only the forearms should move. Return to the starting position as you breathe out and you contract the triceps. Hold the contraction for a second. Repeat for the recommended amount of repetitions.  Variations: Can also be done with an e-z bar, with two dumbbells (using a pronated or supinated grip), seated or standing or with two dumbbells and your palms facing in."
-    },
-    {
-      "name": "Decline Close-Grip Bench To Skull Crusher",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "barbell",
-      "difficulty": "beginner",
-      "instructions": "Secure your legs at the end of the decline bench and slowly lay down on the bench. Using a close grip (a grip that is slightly less than shoulder width), lift the bar from the rack and hold it straight over you with your arms locked and elbows in. The arms should be perpendicular to the floor. This will be your starting position. Tip: In order to protect your rotator cuff, it is best if you have a spotter help you lift the barbell off the rack. Now lower the bar down to your lower chest as you breathe in. Keep the elbows in as you perform this movement. Using the triceps to push the bar back up, press it back to the starting position as you exhale. As you breathe in and you keep the upper arms stationary, bring the bar down slowly by moving your forearms in a semicircular motion towards you until you feel the bar slightly touch your forehead. Breathe in as you perform this portion of the movement. Lift the bar back to the starting position by contracting the triceps and exhaling. Repeat steps 3-6 until the recommended amount of repetitions is performed.  Variations: You can use an e-z bar or dumbbells to perform this movement. You can also perform it on a flat bench as well."
-    },
-    {
-      "name": "Tricep Dumbbell Kickback",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "dumbbell",
-      "difficulty": "intermediate",
-      "instructions": "Start with a dumbbell in each hand and your palms facing your torso. Keep your back straight with a slight bend in the knees and bend forward at the waist. Your torso should be almost parallel to the floor. Make sure to keep your head up. Your upper arms should be close to your torso and parallel to the floor. Your forearms should be pointed towards the floor as you hold the weights. There should be a 90-degree angle formed between your forearm and upper arm. This is your starting position. Now, while keeping your upper arms stationary, exhale and use your triceps to lift the weights until the arm is fully extended. Focus on moving the forearm. After a brief pause at the top contraction, inhale and slowly lower the dumbbells back down to the starting position. Repeat the movement for the prescribed amount of repetitions.  Variations: This exercise can be executed also one arm at a time much like the one arm rows are performed. Also, if you like the one arm variety, you can use a low pulley handle instead of a dumbbell for better peak contraction. In this case, the palms should be facing up (supinated grip) as opposed to the torso (neutral grip)."
-    },
-    {
-      "name": "Dip Machine",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "cable",
-      "difficulty": "intermediate",
-      "instructions": "Sit securely in a dip machine, select the weight and firmly grasp the handles. Now keep your elbows in at your sides in order to place emphasis on the triceps. The elbows should be bent at a 90 degree angle. As you contract the triceps, extend your arms downwards as you exhale. Tip: At the bottom of the movement, focus on keeping a little bend in your arms to keep tension on the triceps muscle. Now slowly let your arms come back up to the starting position as you inhale. Repeat for the recommended amount of repetitions.  Variations: You can perform this exercise on parallel bars or on a triceps dip assist machine."
-    },
-    {
-      "name": "Standing Dumbbell Triceps Extension",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "dumbbell",
-      "difficulty": "intermediate",
-      "instructions": "Standing Dumbbell Triceps Extension"
-    },
-    {
-      "name": "Parallel Bar Dip",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "body_only",
-      "difficulty": "intermediate",
-      "instructions": "Stand between a set of parallel bars. Place a hand on each bar, and then take a small jump to help you get into the starting position with your arms locked out. Begin by flexing the elbow, lowering your body until your arms break 90 degrees. Avoid swinging, and maintain good posture throughout the descent. Reverse the motion by extending the elbow, pushing yourself back up into the starting position. Repeat for the desired number of repetitions."
-    },
-    {
-      "name": "Ring dip",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "body_only",
-      "difficulty": "intermediate",
-      "instructions": "Grip a ring in each hand, and then take a small jump to help you get into the starting position with your arms locked out. Begin by flexing the elbow, lowering your body until your arms break 90 degrees. Avoid swinging, and maintain good posture throughout the descent. Reverse the motion by extending the elbow, pushing yourself back up into the starting position. Repeat for the desired number of repetitions."
-    },
-    {
-      "name": "Double-arm triceps kick-back",
-      "type": "strength",
-      "muscle": "triceps",
-      "equipment": "dumbbell",
-      "difficulty": "intermediate",
-      "instructions": "With a dumbbell in each hand and the palms facing your torso, bend your knees slightly and bring your torso forward, by bending at the waist, while keeping the back straight until it is almost parallel to the floor. Make sure that you keep the head up. The upper arms should be close to the torso and parallel to the floor while the forearms are pointing towards the floor as the hands hold the weights. Tip: There should be a 90-degree angle between the forearms and the upper arm. This is your starting position. Keeping the upper arms stationary, use the triceps to lift the weights as you exhale until the forearms are parallel to the floor and the whole arms are extended. Like many other arm exercises, only the forearm moves. After a second contraction at the top, slowly lower the dumbbells back to their starting position as you inhale. Repeat the movement for the prescribed amount of repetitions.  Variations:  This exercise can be executed also one arm at a time. Also, if you like the one arm variety, you can use a single hand handle or rope attachment instead of a dumbbell for better peak contraction. In this case of the single hand handle, the palms should be facing up as opposed to the torso."
-    }
-  ]
-}
+]

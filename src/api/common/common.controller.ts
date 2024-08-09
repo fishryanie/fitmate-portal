@@ -19,7 +19,7 @@ import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { CommonService } from './common.service';
 import { ApiTags } from '@nestjs/swagger';
 
-@ApiTags('Common')
+// @ApiTags('Common')
 @Controller('/api/v1/common')
 export class CommonController {
   constructor(private readonly commonService: CommonService, private readonly cloudinaryService: CloudinaryService) {}

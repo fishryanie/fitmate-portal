@@ -26,7 +26,7 @@
       "#cloudinary": ["cloudinary"],
       "#cloudinary/*": ["cloudinary/*"],
       "#database": ["database"],
-      "#database/*": ["database/*"],
+      "#database/*": ["database/*"]
     }
   }
 }
