@@ -19,18 +19,15 @@ async function bootstrap() {
     .setDescription(description)
     .setVersion(version)
     .setContact('Phan Hồng Quân', '0979955925', 'qphanquan1998@gmail.com')
+    .addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'JWT' }, 'accessToken')
     .build();
   const document = SwaggerModule.createDocument(app, configsSwagger);
   document.paths = filterPathsByTags(document.paths, WHITE_LIST_TAGS);
   SwaggerModule.setup('', app, document);
-  app.useGlobalPipes(new ValidationPipe());
-  app.enableCors({
-    credentials: true,
-    allowedHeaders: '*',
-    origin: '*',
-  });
 
   app.useGlobalFilters(new HttpExceptionFilter());
+  app.useGlobalPipes(new ValidationPipe());
+  app.enableCors({ credentials: true, allowedHeaders: '*', origin: '*' });
 
   await app.listen(process.env.PORT, async () => {
     console.log(`Application is running on: ${await app.getUrl()}`);

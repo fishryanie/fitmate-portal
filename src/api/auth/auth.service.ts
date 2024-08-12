@@ -1,16 +1,57 @@
-import { Injectable, HttpStatus, InternalServerErrorException, ConflictException } from '@nestjs/common';
+import {
+  Injectable,
+  HttpStatus,
+  InternalServerErrorException,
+  ConflictException,
+  UnauthorizedException,
+  NotAcceptableException,
+} from '@nestjs/common';
 import bcrypt from 'bcrypt';
-import generator from 'generate-password';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
-import { Otp, Permission, Role, User } from './auth.schema';
+import { User } from './auth.schema';
 import { EmailDto, PhoneDto } from './dto/register.dto';
-import { Tokens } from 'interfaces/tokens.interface';
+import { TokenPayload, Tokens } from 'interfaces/tokens.interface';
+import { ApiResponse, ResponseData } from 'interfaces/response.interface';
 
 @Injectable()
 export class AuthService {
   constructor(private jwtService: JwtService, @InjectModel(User.name) private readonly userModel: Model<User>) {}
+
+  async generateTokens(userId: Types.ObjectId, username: string): Promise<Tokens> {
+    const [accessToken, refreshToken] = await Promise.all([
+      this.jwtService.signAsync({ sub: userId, username }, { secret: process.env.JWT_SECRET_KEY, expiresIn: '15m' }),
+      this.jwtService.signAsync({ sub: userId, username }, { secret: process.env.JWT_REFRESH_KEY, expiresIn: '7d' }),
+    ]);
+    return { accessToken, refreshToken };
+  }
+
+  async updateToken(userId: Types.ObjectId, accessToken: Tokens['accessToken'], refreshToken: Tokens['refreshToken']) {
+    const hashedAccessToken = await bcrypt.hash(accessToken, 10);
+    const hashedRefreshToken = await bcrypt.hash(refreshToken, 10);
+    await this.userModel.findByIdAndUpdate(userId, { accessToken: hashedAccessToken, refreshToken: hashedRefreshToken });
+  }
+
+  async refreshToken(refreshToken: Tokens['refreshToken']) {
+    try {
+      const payload: TokenPayload = await this.jwtService.verifyAsync(refreshToken, {
+        secret: process.env.JWT_REFRESH_SECRET,
+      });
+      const currentUser = await this.userModel.findById(payload.sub);
+      if (!currentUser || currentUser.refreshToken !== refreshToken) {
+        throw new UnauthorizedException('Invalid refresh token');
+      }
+      const generateTokensResult = await this.generateTokens(currentUser._id, currentUser.phone);
+      await this.updateToken(currentUser._id, generateTokensResult.accessToken, generateTokensResult.refreshToken);
+      return {
+        accessToken: generateTokensResult.accessToken,
+        refreshToken: generateTokensResult.refreshToken,
+      };
+    } catch (error) {
+      throw new UnauthorizedException('Invalid refresh token');
+    }
+  }
 
   async checkPhone(request: PhoneDto): Promise<{ statusCode: HttpStatus.CONFLICT | HttpStatus.NOT_FOUND; message: string }> {
     try {
@@ -19,6 +60,29 @@ export class AuthService {
         return { statusCode: HttpStatus.CONFLICT, message: 'Phone number already exists' };
       }
       return { statusCode: HttpStatus.NOT_FOUND, message: 'Phone not found' };
+    } catch (error) {
+      throw new InternalServerErrorException(error);
+    }
+  }
+
+  async login(username: string, password: string): Promise<ResponseData<Tokens>> {
+    try {
+      const currentUser = await this.userModel.findOne({ username }).exec();
+      if (!currentUser) {
+        throw new NotAcceptableException('Username is incorrect');
+      }
+      const isMatch = await bcrypt.compare(password, currentUser.password);
+      if (!isMatch) {
+        throw new UnauthorizedException('Invalid credentials');
+      }
+      return {
+        code: HttpStatus.OK,
+        message: 'Loggin Success',
+        data: {
+          accessToken: currentUser.accessToken,
+          refreshToken: currentUser.refreshToken,
+        },
+      };
     } catch (error) {
       throw new InternalServerErrorException(error);
     }
@@ -36,14 +100,6 @@ export class AuthService {
     }
   }
 
-  async generateTokens(userId: Types.ObjectId, username: string): Promise<Tokens> {
-    const [accessToken, refreshToken] = await Promise.all([
-      this.jwtService.signAsync({ sub: userId, username }, { secret: process.env.JWT_SECRET_KEY, expiresIn: '15m' }),
-      this.jwtService.signAsync({ sub: userId, username }, { secret: process.env.JWT_REFRESH_KEY, expiresIn: '7d' }),
-    ]);
-    return { accessToken, refreshToken };
-  }
-
   async registerPhone(phone: string): Promise<Tokens> {
     try {
       const checkPhoneResult = await this.checkPhone({ phone });
@@ -51,47 +107,22 @@ export class AuthService {
         throw new ConflictException(checkPhoneResult.message);
       }
       const newAccount = await this.userModel.create({ phone, username: phone });
-      const generateTokensResult = await this.generateTokens(newAccount._id, newAccount.phone);
-      const hashedAccessToken = await bcrypt.hash(generateTokensResult.accessToken, 10);
-      const hashedRefreshToken = await bcrypt.hash(generateTokensResult.refreshToken, 10);
-      await this.userModel.findByIdAndUpdate(newAccount._id, { accessToken: hashedAccessToken, refreshToken: hashedRefreshToken });
-      return generateTokensResult;
+      const { accessToken, refreshToken } = await this.generateTokens(newAccount._id, newAccount.phone);
+      await this.updateToken(newAccount._id, accessToken, refreshToken);
+      return { accessToken, refreshToken };
     } catch (error) {
       throw new InternalServerErrorException(error, 'Failed to create user');
     }
   }
 
-  async createPassword(userId: string, newPassword: string): Promise<void> {
+  async createPassword(userId: string, newPassword: string): Promise<ApiResponse> {
     const hashedPassword = await bcrypt.hash(newPassword, 10);
     await this.userModel.findByIdAndUpdate(userId, { password: hashedPassword }).exec();
+    return {
+      code: HttpStatus.CREATED,
+      message: 'Create new password successfully',
+    };
   }
-
-  // async login(username: string, password: string): Promise<any> {
-  //   const foundUser = await this.userModel.findOne({ username }).exec();
-  //   if (!foundUser) {
-  //     throw new NotAcceptableException('Username is incorrect');
-  //   }
-  //   if (!bcrypt.compare(foundUser.password, password)) {
-  //     throw new BadRequestException('Password is incorrect');
-  //   }
-  //   const tokens = await this.getTokens(foundUser._id, username);
-  //   await this.userModel
-  //     .findOneAndUpdate(
-  //       { _id: foundUser._id },
-  //       { $set: { refreshToken: tokens.refreshToken } },
-  //       { new: true, upsert: true, strict: false, returnNewDocument: true },
-  //     )
-  //     .exec();
-  //   return {
-  //     success: true,
-  //     message: 'Login Successfully',
-  //     data: {
-  //       accessToken: tokens.accessToken,
-  //       refreshToken: tokens.refreshToken,
-  //     },
-  //   };
-  // }
-  /* Auth */
 
   /* Permission */
   // async createPermission(permission: Permission): Promise<Permission> {
