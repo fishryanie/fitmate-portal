@@ -6,6 +6,8 @@ import { ValidationPipe } from '@nestjs/common';
 import { Logger } from '@nestjs/common';
 import { HttpExceptionFilter } from 'http-exception.filter';
 
+const WHITE_LIST_TAGS = ['Upload File', 'Authentication', 'equipment', 'muscle', 'exercise', 'exercise-goal', 'exercise-categories'];
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     bufferLogs: true,
@@ -18,11 +20,9 @@ async function bootstrap() {
     .setVersion(version)
     .setContact('Phan Hồng Quân', '0979955925', 'qphanquan1998@gmail.com')
     .build();
-  const WHITE_LIST_TAGS = ['equipment', 'exercise', 'exercise-goal', 'exercise-categories'];
   const document = SwaggerModule.createDocument(app, configsSwagger);
   document.paths = filterPathsByTags(document.paths, WHITE_LIST_TAGS);
   SwaggerModule.setup('', app, document);
-
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({
     credentials: true,

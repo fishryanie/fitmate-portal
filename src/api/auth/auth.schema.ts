@@ -31,23 +31,26 @@ export class User {
   @Prop({ required: true, unique: true, trim: true })
   username: string;
 
-  @Prop({ required: true, trim: true })
+  @Prop({ required: false, trim: true })
   password: string;
 
-  @Prop({ required: true, default: true })
+  @Prop({ required: false, default: true })
   gender: boolean;
 
-  @Prop()
+  @Prop({ unique: true, sparse: true })
   phone: string;
 
-  @Prop()
+  @Prop({ unique: true, sparse: true })
   email: string;
 
-  @Prop()
-  birthday: string;
+  @Prop({ type: Date })
+  birthday?: Date;
 
   @Prop()
   refreshToken: string;
+
+  @Prop({ unique: true, sparse: true })
+  accessToken: string;
 }
 
 @Schema({ collection: COLLECTION_NAME.otp, timestamps: true })
@@ -86,3 +89,11 @@ export const OtpSchema = SchemaFactory.createForClass(Otp);
 export const RoleSchema = SchemaFactory.createForClass(Role);
 export const UserSchema = SchemaFactory.createForClass(User);
 export const PermissionSchema = SchemaFactory.createForClass(Permission);
+
+UserSchema.pre('validate', function (next) {
+  if (!this.phone && !this.email) {
+    this.invalidate('phone', 'Either phone or email must be provided');
+    this.invalidate('email', 'Either phone or email must be provided');
+  }
+  next();
+});

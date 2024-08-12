@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CommonController } from './common.controller';
 import { CommonService } from './common.service';
-import { CloudinaryModule } from 'cloudinary/cloudinary.module';
+import { CloudinaryModule } from '#api/cloudinary/cloudinary.module';
 import { PasswordGuard } from './guards/password.guard';
 
 @Module({

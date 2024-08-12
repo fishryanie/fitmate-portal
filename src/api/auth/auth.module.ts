@@ -16,4 +16,4 @@ import { Otp, Role, User, Permission, OtpSchema, RoleSchema, UserSchema, Permiss
   providers: [AuthService],
   exports: [AuthService],
 })
-export class UserModule {}
+export class AuthenticationModule {}

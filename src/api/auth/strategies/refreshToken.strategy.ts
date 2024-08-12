@@ -12,7 +12,6 @@ export class RefreshTokenStrategy extends PassportStrategy(Strategy, 'jwt-refres
       passReqToCallback: true,
     });
   }
-
   validate(req: Request, payload: any) {
     const refreshToken = req.get('Authorization').replace('Bearer', '').trim();
     return { ...payload, refreshToken };

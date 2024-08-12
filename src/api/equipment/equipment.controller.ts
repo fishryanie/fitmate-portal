@@ -1,8 +1,10 @@
-import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common';
-import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Controller, Get, Post, Body, Param, Query, UseInterceptors } from '@nestjs/common';
+import { ApiBody, ApiConsumes, ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { EquipmentService } from './equipment.service';
 import { Equipment } from './schemas/equipment.schema';
 import { PaginationDto } from './dto/pagination.dto';
+import { CreateEquipmentDto } from './dto/create-equipment.dto';
+import { FileInterceptor } from '@nestjs/platform-express';
 
 @ApiTags('equipment')
 @Controller('equipment')
@@ -22,6 +24,9 @@ export class EquipmentController {
   @ApiOperation({ summary: 'Create a new Equipment' })
   @ApiResponse({ status: 201, description: 'Equipment created successfully.' })
   @ApiResponse({ status: 400, description: 'Bad request.' })
+  @ApiConsumes('multipart/form-data')
+  @UseInterceptors(FileInterceptor('picture'))
+  @ApiBody({ type: CreateEquipmentDto })
   create(@Body() createEquipmentDto: Equipment) {
     return this.equipmentService.createOne(createEquipmentDto);
   }

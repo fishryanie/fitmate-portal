@@ -1,23 +1,14 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export enum EquipmentType {
-  Electronic = 'Electronic',
-  Mechanical = 'Mechanical',
-  Hydraulic = 'Hydraulic',
-}
-
-export class CreateEquipmentDto {
+export class CreateMuscleDto {
   @ApiProperty({ description: 'Name of the equipment' })
   name: string;
 
-  @ApiProperty({ description: 'Description of the equipment' })
+  @ApiProperty({ description: 'Description of the equipment', required: false })
   description: string;
 
-  @ApiProperty({
-    description: 'Type of the equipment',
-    enum: EquipmentType,
-  })
-  type: EquipmentType;
+  @ApiProperty({ description: 'Id of the muscle (MongoDB ObjectId)', required: false })
+  idParent: string;
 
   @ApiProperty({
     description: 'Picture of the equipment (URL or base64 string)',
