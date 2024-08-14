@@ -23,36 +23,6 @@ export class Permission {
   delete: boolean;
 }
 
-@Schema({ collection: COLLECTION_NAME.user, autoIndex: true, timestamps: true })
-export class User {
-  @Prop({ required: false })
-  fullName: string;
-
-  @Prop({ required: true, unique: true, trim: true })
-  username: string;
-
-  @Prop({ required: false, trim: true })
-  password: string;
-
-  @Prop({ required: false, default: true })
-  gender: boolean;
-
-  @Prop({ unique: true, sparse: true })
-  phone: string;
-
-  @Prop({ unique: true, sparse: true })
-  email: string;
-
-  @Prop({ type: Date })
-  birthday?: Date;
-
-  @Prop()
-  refreshToken: string;
-
-  @Prop({ unique: true, sparse: true })
-  accessToken: string;
-}
-
 @Schema({ collection: COLLECTION_NAME.otp, timestamps: true })
 export class Otp {
   @Prop({ required: true })
@@ -81,19 +51,9 @@ export class Role {
 }
 
 export type OtpDocument = HydratedDocument<Otp>;
-export type UserDocument = HydratedDocument<User>;
 export type RoleDocument = HydratedDocument<Role>;
 export type PermissionDocument = HydratedDocument<Permission>;
 
 export const OtpSchema = SchemaFactory.createForClass(Otp);
 export const RoleSchema = SchemaFactory.createForClass(Role);
-export const UserSchema = SchemaFactory.createForClass(User);
 export const PermissionSchema = SchemaFactory.createForClass(Permission);
-
-UserSchema.pre('validate', function (next) {
-  if (!this.phone && !this.email) {
-    this.invalidate('phone', 'Either phone or email must be provided');
-    this.invalidate('email', 'Either phone or email must be provided');
-  }
-  next();
-});

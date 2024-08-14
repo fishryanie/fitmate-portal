@@ -4,8 +4,8 @@ import { AuthService } from './auth.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Response } from 'express';
 import { EmailDto, LoginDto, PasswordDto, PhoneDto, RefreshTokenDto } from './dto/register.dto';
-import { AuthGuard } from './guards/auth.guard';
 import { TokenVerifiedRequest } from 'interfaces/tokens.interface';
+import { JwtAuthGuard } from './guards/auth.guard';
 
 @ApiTags('Authentication')
 @Controller('auth')
@@ -93,7 +93,7 @@ export class UserController {
   @ApiResponse({ status: HttpStatus.CREATED, description: 'Create new password successfully.' })
   @ApiResponse({ status: HttpStatus.UNAUTHORIZED, description: 'Unauthorized.' })
   @ApiResponse({ status: HttpStatus.BAD_REQUEST, description: 'Bad request.' })
-  @UseGuards(AuthGuard)
+  @UseGuards(JwtAuthGuard)
   @ApiBearerAuth('accessToken')
   @HttpCode(HttpStatus.CREATED)
   createNewPwd(@Req() req: TokenVerifiedRequest, @Body() body: PasswordDto) {

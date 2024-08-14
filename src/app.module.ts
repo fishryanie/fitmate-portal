@@ -15,6 +15,7 @@ import { EquipmentModule } from './api/equipment/equipment.module';
 import { ExerciseCategoriesModule } from './api/exercise-categories/exercise-categories.module';
 import { ExerciseGoalModule } from './api/exercise-goal/exercise-goal.module';
 import { MuscleModule } from './api/muscle/muscle.module';
+import { UserModule } from './api/user/user.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -25,14 +26,15 @@ import { MuscleModule } from './api/muscle/muscle.module';
     ),
     CloudinaryModule,
     AuthenticationModule,
+    UserModule,
     MuscleModule,
     CommonModule,
+    EquipmentModule,
+    ExerciseGoalModule,
+    ExerciseCategoriesModule,
     ExerciseModule,
     RestaurantModule,
     TaskModule,
-    EquipmentModule,
-    ExerciseCategoriesModule,
-    ExerciseGoalModule,
   ],
   providers: [JwtService, FirebaseStrategy, GoogleStrategy],
 })
