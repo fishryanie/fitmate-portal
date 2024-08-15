@@ -3,12 +3,12 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateConditionDto } from './dto/condition.dto';
 import { ResponseData } from 'interfaces/response.interface';
 import { InjectModel } from '@nestjs/mongoose';
-import { User } from './user.schema';
+import { User, UserDocument } from './user.schema';
 import { Model } from 'mongoose';
 
 @Injectable()
 export class UserService {
-  constructor(@InjectModel(User.name) private readonly userModel: Model<User>) {}
+  constructor(@InjectModel(User.name) private readonly userModel: Model<UserDocument>) {}
   create(createUserDto: CreateUserDto) {
     return 'This action adds a new user';
   }

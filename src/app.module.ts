@@ -1,12 +1,10 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
-import { JwtService } from '@nestjs/jwt';
+import { JwtModule, JwtService } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthenticationModule } from '#api/auth/auth.module';
 import { CommonModule } from '#api/common/common.module';
 import { ExerciseModule } from '#api/exercise/exercise.module';
-import { FirebaseStrategy } from './firebase/strategies/firebase.strategy';
-import { GoogleStrategy } from './api/auth/strategies/socialGoogle.strategy';
 import { CloudinaryModule } from './api/cloudinary/cloudinary.module';
 import { RestaurantModule } from '#api/restaurant/module';
 import { TaskModule } from '#api/task/module';
@@ -16,14 +14,18 @@ import { ExerciseCategoriesModule } from './api/exercise-categories/exercise-cat
 import { ExerciseGoalModule } from './api/exercise-goal/exercise-goal.module';
 import { MuscleModule } from './api/muscle/muscle.module';
 import { UserModule } from './api/user/user.module';
+import { EXPIRES_TOKEN } from '#constant';
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      envFilePath: '.env',
-    }),
+    ConfigModule.forRoot({ envFilePath: '.env' }),
     MongooseModule.forRoot(
-      `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@cluster0.lqsyp.mongodb.net/${process.env.MONGO_NAME}?retryWrites=true&w=majority`,
+      `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/${process.env.MONGO_NAME}?${process.env.MONGO_OPTIONS}`,
     ),
+    JwtModule.register({
+      global: true,
+      secret: process.env.JWT_SECRET_KEY,
+      signOptions: { expiresIn: EXPIRES_TOKEN },
+    }),
     CloudinaryModule,
     AuthenticationModule,
     UserModule,
@@ -36,7 +38,7 @@ import { UserModule } from './api/user/user.module';
     RestaurantModule,
     TaskModule,
   ],
-  providers: [JwtService, FirebaseStrategy, GoogleStrategy],
+  providers: [],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

@@ -13,11 +13,11 @@ import { Model, Types } from 'mongoose';
 import { EmailDto, PhoneDto } from './dto/register.dto';
 import { TokenPayload, Tokens } from 'interfaces/tokens.interface';
 import { ApiResponse, ResponseData } from 'interfaces/response.interface';
-import { User } from '#api/user/user.schema';
+import { User, UserDocument } from '#api/user/user.schema';
 
 @Injectable()
 export class AuthService {
-  constructor(private jwtService: JwtService, @InjectModel(User.name) private userModel: Model<User>) {}
+  constructor(private jwtService: JwtService, @InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
   async generateTokens(userId: Types.ObjectId, username: string): Promise<Tokens> {
     const [accessToken, refreshToken] = await Promise.all([
