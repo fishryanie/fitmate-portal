@@ -15,8 +15,7 @@ export class AccessTokenStrategy extends PassportStrategy(Strategy, 'jwt') {
       secretOrKey: process.env.JWT_ACCESS_SECRET,
     });
   }
-
   validate(payload: JwtPayload) {
-    return payload;
+    return { userId: payload.sub, username: payload.username };
   }
 }

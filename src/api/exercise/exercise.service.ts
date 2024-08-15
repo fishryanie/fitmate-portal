@@ -12,9 +12,7 @@ export class ExerciseService {
   async findAll(): Promise<CreateExerciseDto[]> {
     return this.exerciseModel.find().exec();
   }
-  async create(
-    createExerciseDto: CreateExerciseDto,
-  ): Promise<CreateExerciseDto> {
+  async create(createExerciseDto: CreateExerciseDto): Promise<CreateExerciseDto> {
     const createdExercise = new this.exerciseModel(createExerciseDto);
     return createdExercise.save();
   }

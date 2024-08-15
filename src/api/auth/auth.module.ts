@@ -3,12 +3,12 @@ import { JwtModule } from '@nestjs/jwt';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserController } from './auth.controller';
 import { AuthService } from './auth.service';
-import { Otp, Role, User, Permission, OtpSchema, RoleSchema, UserSchema, PermissionSchema } from './auth.schema';
+import { Otp, Role, Permission, OtpSchema, RoleSchema, PermissionSchema } from './auth.schema';
+import { User, UserSchema } from '#api/user/user.schema';
 @Module({
   imports: [
-    JwtModule.register({}),
-    MongooseModule.forFeature([{ name: Role.name, schema: RoleSchema }]),
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
+    MongooseModule.forFeature([{ name: Role.name, schema: RoleSchema }]),
     MongooseModule.forFeature([{ name: Otp.name, schema: OtpSchema }]),
     MongooseModule.forFeature([{ name: Permission.name, schema: PermissionSchema }]),
   ],
@@ -16,4 +16,4 @@ import { Otp, Role, User, Permission, OtpSchema, RoleSchema, UserSchema, Permiss
   providers: [AuthService],
   exports: [AuthService],
 })
-export class UserModule {}
+export class AuthenticationModule {}

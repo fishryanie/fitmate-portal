@@ -1,13 +1,12 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
 import { CommonController } from './common.controller';
 import { CommonService } from './common.service';
-import { CloudinaryService } from 'cloudinary/cloudinary.service';
-import { CloudinaryModule } from 'cloudinary/cloudinary.module';
+import { CloudinaryModule } from '#api/cloudinary/cloudinary.module';
+import { PasswordGuard } from './guards/password.guard';
 
 @Module({
   imports: [CloudinaryModule],
   controllers: [CommonController],
-  providers: [CommonService],
+  providers: [CommonService, PasswordGuard],
 })
 export class CommonModule {}

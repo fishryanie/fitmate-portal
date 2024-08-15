@@ -23,33 +23,6 @@ export class Permission {
   delete: boolean;
 }
 
-@Schema({ collection: COLLECTION_NAME.user, autoIndex: true, timestamps: true })
-export class User {
-  @Prop({ required: false })
-  fullName: string;
-
-  @Prop({ required: true, unique: true, trim: true })
-  username: string;
-
-  @Prop({ required: true, trim: true })
-  password: string;
-
-  @Prop({ required: true, default: true })
-  gender: boolean;
-
-  @Prop()
-  phone: string;
-
-  @Prop()
-  email: string;
-
-  @Prop()
-  birthday: string;
-
-  @Prop()
-  refreshToken: string;
-}
-
 @Schema({ collection: COLLECTION_NAME.otp, timestamps: true })
 export class Otp {
   @Prop({ required: true })
@@ -78,11 +51,9 @@ export class Role {
 }
 
 export type OtpDocument = HydratedDocument<Otp>;
-export type UserDocument = HydratedDocument<User>;
 export type RoleDocument = HydratedDocument<Role>;
 export type PermissionDocument = HydratedDocument<Permission>;
 
 export const OtpSchema = SchemaFactory.createForClass(Otp);
 export const RoleSchema = SchemaFactory.createForClass(Role);
-export const UserSchema = SchemaFactory.createForClass(User);
 export const PermissionSchema = SchemaFactory.createForClass(Permission);
