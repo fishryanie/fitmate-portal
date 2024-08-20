@@ -1,23 +1,8 @@
-import {
-  Body,
-  Controller,
-  Get,
-  HttpCode,
-  HttpStatus,
-  Post,
-  Query,
-  Req,
-  Res,
-  UploadedFile,
-  UploadedFiles,
-  UseFilters,
-  UseInterceptors,
-} from '@nestjs/common';
+import { Controller, Get, Post, Query, UploadedFile, UploadedFiles, UseInterceptors } from '@nestjs/common';
 import { TypeDistrict, TypeProvince, TypeTermsPolicy, TypeWard } from '#mock/types';
-import { CloudinaryService } from '#api/cloudinary/cloudinary.service';
 import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { CommonService } from './common.service';
-import { ApiTags } from '@nestjs/swagger';
+import { CloudinaryService } from '@api/upload/cloudinary.service';
 
 // @ApiTags('Common')
 @Controller('/api/v1/common')

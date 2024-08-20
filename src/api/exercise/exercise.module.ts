@@ -2,11 +2,13 @@ import { Module } from '@nestjs/common';
 import { ExerciseController } from './exercise.controller';
 import { ExerciseService } from './exercise.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ExerciseSchema } from './exercise.schema';
+import { Exercise, ExerciseCategories, ExerciseCategoriesSchema, ExerciseGoal, ExerciseGoalSchema, ExerciseSchema } from '@api/exercise/schema';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'Exercise', schema: ExerciseSchema }]),
+    MongooseModule.forFeature([{ name: Exercise.name, schema: ExerciseSchema }]),
+    MongooseModule.forFeature([{ name: ExerciseGoal.name, schema: ExerciseGoalSchema }]),
+    MongooseModule.forFeature([{ name: ExerciseCategories.name, schema: ExerciseCategoriesSchema }]),
   ],
   controllers: [ExerciseController],
   providers: [ExerciseService],

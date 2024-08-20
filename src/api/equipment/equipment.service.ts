@@ -1,10 +1,9 @@
 import { Model } from 'mongoose';
 import { DATA_EQUIPMENT } from '#mock';
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { UpdateEquipmentDto } from './dto/update-equipment.dto';
 import { Equipment } from './schemas/equipment.schema';
-import { PaginationDto } from './dto/pagination.dto';
 import { InjectModel } from '@nestjs/mongoose';
+import { PagingDto } from '@api/common/dto';
 
 @Injectable()
 export class EquipmentService {
@@ -23,7 +22,7 @@ export class EquipmentService {
     }
   }
 
-  async findMany(paginationDto: PaginationDto) {
+  async findMany(paginationDto: PagingDto) {
     const { page = 1, limit = 10 } = paginationDto;
     const skip = (page - 1) * limit;
     const total = await this.equipmentModel.countDocuments().exec();

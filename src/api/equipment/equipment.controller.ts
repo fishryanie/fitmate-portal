@@ -2,9 +2,9 @@ import { Controller, Get, Post, Body, Param, Query, UseInterceptors } from '@nes
 import { ApiBody, ApiConsumes, ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { EquipmentService } from './equipment.service';
 import { Equipment } from './schemas/equipment.schema';
-import { PaginationDto } from './dto/pagination.dto';
 import { CreateEquipmentDto } from './dto/create-equipment.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { PagingDto } from '@api/common/dto';
 
 @ApiTags('equipment')
 @Controller('equipment')
@@ -16,7 +16,7 @@ export class EquipmentController {
   @ApiResponse({ status: 200, description: 'List of equipment.' })
   @ApiQuery({ name: 'page', required: false, type: Number, description: 'Page number' })
   @ApiQuery({ name: 'limit', required: false, type: Number, description: 'Number of items per page' })
-  findAll(@Query() pagingDto: PaginationDto) {
+  findAll(@Query() pagingDto: PagingDto) {
     return this.equipmentService.findMany(pagingDto);
   }
 

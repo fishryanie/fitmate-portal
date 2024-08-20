@@ -13,7 +13,7 @@ import { Model, Types } from 'mongoose';
 import { EmailDto, PhoneDto } from './dto/register.dto';
 import { TokenPayload, Tokens } from 'interfaces/tokens.interface';
 import { ApiResponse, ResponseData } from 'interfaces/response.interface';
-import { User, UserDocument } from '#api/user/user.schema';
+import { User, UserDocument } from '@api/user/user.schema';
 
 @Injectable()
 export class AuthService {

@@ -2,8 +2,8 @@ import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { DATA_EXERCISE_GOAL } from '#mock';
-import { PagingDto } from '#api/common/dto/paging.dto';
 import { Muscle, MuscleDocument } from './muscle.schema';
+import { PagingDto } from '@api/common/dto';
 
 @Injectable()
 export class MuscleService {

@@ -5,7 +5,7 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { Response } from 'express';
 import { EmailDto, LoginDto, PasswordDto, PhoneDto, RefreshTokenDto } from './dto/register.dto';
 import { TokenVerifiedRequest } from 'interfaces/tokens.interface';
-import { JwtAuthGuard } from './guards/auth.guard';
+import { JwtAuthGuard } from '../../guards/jwtAuthGuard';
 
 @ApiTags('Authentication')
 @Controller('auth')

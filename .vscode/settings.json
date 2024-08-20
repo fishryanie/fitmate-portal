@@ -1,3 +1,7 @@
 {
-  "cSpell.words": ["Kettlebells", "Plyometric"]
+  "cSpell.words": ["fitate", "Kettlebells", "Plyometric"],
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.importModuleSpecifierEnding": "minimal",
+  "javascript.preferences.importModuleSpecifierEnding": "minimal"
 }

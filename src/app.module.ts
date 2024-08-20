@@ -2,19 +2,17 @@ import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AuthenticationModule } from '#api/auth/auth.module';
-import { CommonModule } from '#api/common/common.module';
-import { ExerciseModule } from '#api/exercise/exercise.module';
-import { CloudinaryModule } from './api/cloudinary/cloudinary.module';
-import { RestaurantModule } from '#api/restaurant/module';
-import { TaskModule } from '#api/task/module';
+import { CloudinaryModule } from './api/upload/cloudinary.module';
 import { LoggerMiddleware } from 'middlewares/LoggerMiddleware';
 import { EquipmentModule } from './api/equipment/equipment.module';
-import { ExerciseCategoriesModule } from './api/exercise-categories/exercise-categories.module';
-import { ExerciseGoalModule } from './api/exercise-goal/exercise-goal.module';
 import { MuscleModule } from './api/muscle/muscle.module';
 import { UserModule } from './api/user/user.module';
 import { EXPIRES_TOKEN } from '#constant';
+import { SectionModule } from './api/section/section.module';
+import { ChatModule } from './api/chat/chat.module';
+import { CommonModule } from '@api/common/common.module';
+import { ExerciseModule } from '@api/exercise/exercise.module';
+import { AuthenticationModule } from '@api/auth/auth.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath: '.env' }),
@@ -32,11 +30,9 @@ import { EXPIRES_TOKEN } from '#constant';
     MuscleModule,
     CommonModule,
     EquipmentModule,
-    ExerciseGoalModule,
-    ExerciseCategoriesModule,
     ExerciseModule,
-    RestaurantModule,
-    TaskModule,
+    SectionModule,
+    ChatModule,
   ],
   providers: [],
 })

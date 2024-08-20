@@ -2,8 +2,8 @@ import { Controller, Get, Body, Patch, Param, Delete, UseGuards } from '@nestjs/
 import { UserService } from './user.service';
 import { ApiTags } from '@nestjs/swagger';
 import { WorkoutLocation } from 'enums/user';
-import { JwtAuthGuard } from '#api/auth/guards/auth.guard';
 import { UpdateConditionDto } from './dto/condition.dto';
+import { JwtAuthGuard } from '@guards';
 
 @ApiTags('user')
 @Controller('user')
