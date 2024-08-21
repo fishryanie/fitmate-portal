@@ -7,7 +7,7 @@ import { Logger } from '@nestjs/common';
 import { HttpExceptionFilter } from 'http-exception.filter';
 import { ValidationError } from 'class-validator';
 
-const WHITE_LIST_TAGS = ['Upload File', 'Authentication', 'user', 'equipment', 'muscle', 'exercise'];
+const WHITE_LIST_TAGS = ['Upload File', 'Authentication', 'user', 'equipment', 'muscle', 'exercise', 'exercise-goal', 'exercise-categories'];
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {

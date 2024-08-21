@@ -17,6 +17,8 @@
     "paths": {
       "@api": ["api"],
       "@api/*": ["api/*"],
+      "@base": ["base"],
+      "@base/*": ["base/*"],
       "@guards": ["guards"],
       "@guards/*": ["guards/*"],
       "#mock": ["mock"],

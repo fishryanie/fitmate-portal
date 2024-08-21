@@ -1,14 +1,7 @@
+import { ExerciseCategoryDto } from '@api/exercise/dto/categories';
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import { IsArray, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
-
-export class ExerciseCategoryDto {
-  @IsNotEmpty({ message: 'Title should not be empty' })
-  @IsString({ message: 'Title should be a string' })
-  title: string;
-  @IsString({ message: 'Description must be a string' })
-  description: string;
-}
+import { IsArray, ValidateNested } from 'class-validator';
 
 export class ArrayExerciseCategoriesDto {
   @ApiProperty({

@@ -1,10 +1,10 @@
 import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateConditionDto } from './dto/condition.dto';
-import { ResponseData } from 'interfaces/response.interface';
 import { InjectModel } from '@nestjs/mongoose';
 import { User, UserDocument } from './user.schema';
 import { Model } from 'mongoose';
+import { ApiResponseData } from 'interfaces';
 
 @Injectable()
 export class UserService {
@@ -29,7 +29,7 @@ export class UserService {
     return `This action removes a #${id} user`;
   }
 
-  async updateCondition(userId: string, updateConditionDto: UpdateConditionDto): Promise<ResponseData<UpdateConditionDto>> {
+  async updateCondition(userId: string, updateConditionDto: UpdateConditionDto): Promise<ApiResponseData<UpdateConditionDto>> {
     const updatedUser = await this.userModel
       .findByIdAndUpdate(userId, { $set: { condition: updateConditionDto } }, { new: true, useFindAndModify: false })
       .exec();
@@ -37,7 +37,7 @@ export class UserService {
       throw new NotFoundException('User not found');
     }
     return {
-      code: HttpStatus.CREATED,
+      statusCode: HttpStatus.CREATED,
       data: updatedUser.condition,
       message: 'Update success',
     };

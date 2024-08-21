@@ -1,4 +1,4 @@
-import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer, ValidationPipe } from '@nestjs/common';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -11,7 +11,7 @@ import { EXPIRES_TOKEN } from '#constant';
 import { SectionModule } from './api/section/section.module';
 import { ChatModule } from './api/chat/chat.module';
 import { CommonModule } from '@api/common/common.module';
-import { ExerciseModule } from '@api/exercise/exercise.module';
+import { ExerciseModule } from '@api/exercise/module';
 import { AuthenticationModule } from '@api/auth/auth.module';
 @Module({
   imports: [

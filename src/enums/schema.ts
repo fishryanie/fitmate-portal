@@ -5,4 +5,5 @@ export enum COLLECTION_NAME {
   permission = 'permission-collection',
   task = 'task-collection',
   restaurant = 'restaurant-collection',
+  exerciseCategories = 'exercise-categories',
 }

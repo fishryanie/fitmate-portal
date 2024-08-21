@@ -1,8 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { IsEmpty } from 'class-validator';
+import { COLLECTION_NAME } from 'enums/schema';
 import { HydratedDocument } from 'mongoose';
 
-@Schema({ autoIndex: true, timestamps: true, versionKey: false, strict: true })
+@Schema({ collection: COLLECTION_NAME.exerciseCategories, autoIndex: true, timestamps: true, versionKey: false, strict: true })
 export class ExerciseCategories {
   @Prop({ type: String, required: true, unique: true })
   @IsEmpty()

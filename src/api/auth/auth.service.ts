@@ -12,8 +12,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { EmailDto, PhoneDto } from './dto/register.dto';
 import { TokenPayload, Tokens } from 'interfaces/tokens.interface';
-import { ApiResponse, ResponseData } from 'interfaces/response.interface';
 import { User, UserDocument } from '@api/user/user.schema';
+import { ApiResponse, ApiResponseData } from 'interfaces';
 
 @Injectable()
 export class AuthService {
@@ -65,7 +65,7 @@ export class AuthService {
     }
   }
 
-  async login(username: string, password: string): Promise<ResponseData<Tokens>> {
+  async login(username: string, password: string): Promise<ApiResponseData<Tokens>> {
     try {
       const currentUser = await this.userModel.findOne({ username }).exec();
       if (!currentUser) {
@@ -76,7 +76,7 @@ export class AuthService {
         throw new UnauthorizedException('Invalid credentials');
       }
       return {
-        code: HttpStatus.OK,
+        statusCode: HttpStatus.OK,
         message: 'Loggin Success',
         data: {
           accessToken: currentUser.accessToken,
@@ -119,7 +119,7 @@ export class AuthService {
     const hashedPassword = await bcrypt.hash(newPassword, 10);
     await this.userModel.findByIdAndUpdate(userId, { password: hashedPassword }).exec();
     return {
-      code: HttpStatus.CREATED,
+      statusCode: HttpStatus.CREATED,
       message: 'Create new password successfully',
     };
   }
