@@ -3,7 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { RestaurantController } from './controller';
 import { RestaurantService } from './service';
 import { RestaurantSchema } from './schema';
-import { COLLECTION_NAME } from '#constant';
+import { COLLECTION_NAME } from '@constants';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: COLLECTION_NAME.restaurant, schema: RestaurantSchema }])],

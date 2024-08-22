@@ -4,7 +4,7 @@ import { Model } from 'mongoose';
 import { Restaurant, RestaurantDocument } from './schema';
 import { RestaurantEntity } from './entity';
 import { HTTP_CODE_METADATA } from '@nestjs/common/constants';
-import { COLLECTION_NAME } from '#constant';
+import { COLLECTION_NAME } from '@constants';
 
 @Injectable()
 export class RestaurantService {

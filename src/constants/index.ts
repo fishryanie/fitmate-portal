@@ -24,6 +24,8 @@ export const REGEX_EMAIL =
 export const REGEX_PHONE =
   /((086|096|097|098|032|033|034|035|036|037|038|039|088|091|094|083|084|085|081|082|089|090|093|070|079|077|076|078|092|056|058|099|059)+([0-9]{7})\b)/g;
 
+export const ISGD_API_URL = 'https://is.gd/create.php';
+
 export const STATUS_NEXT = {
   exist: 'next_when_found',
   unExist: 'next_when_not_found',

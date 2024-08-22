@@ -1,4 +1,4 @@
-import { COLLECTION_NAME } from '#constant';
+import { COLLECTION_NAME } from '@constants';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Gender, WorkoutLocation } from 'enums/user';
 import { HydratedDocument } from 'mongoose';

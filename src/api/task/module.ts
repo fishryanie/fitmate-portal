@@ -3,7 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { TaskController } from './controller';
 import { TaskService } from './service';
 import { Task, TaskSchema } from './schema';
-import { COLLECTION_NAME } from '#constant';
+import { COLLECTION_NAME } from '@constants';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: COLLECTION_NAME.task, schema: TaskSchema }])],

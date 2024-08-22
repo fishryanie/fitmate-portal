@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { COLLECTION_NAME, EXPIRES_OTP } from '#constant';
+import { COLLECTION_NAME, EXPIRES_OTP } from '@constants';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { IsPhoneNumber } from 'class-validator';
 import mongoose, { HydratedDocument } from 'mongoose';

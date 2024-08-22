@@ -1,8 +1,10 @@
 import { PagingDto } from '@api/common/dto';
+import { BaseResponse } from '@base/response';
 import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { ApiPagingResponseData, ApiResponseData } from 'interfaces';
 import { Model } from 'mongoose';
 
+Injectable();
 export abstract class BaseService<T> {
   constructor(protected readonly model: Model<T>) {}
 
@@ -20,6 +22,6 @@ export abstract class BaseService<T> {
     if (!data) {
       throw new NotFoundException(`Exercise categories with id ${id} not found`);
     }
-    return { data, statusCode: HttpStatus.OK, message: 'successfully' };
+    return new BaseResponse(data);
   }
 }

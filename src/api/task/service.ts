@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Task, TaskDocument } from './schema';
 import { TaskEntity } from './entity';
-import { COLLECTION_NAME } from '#constant';
+import { COLLECTION_NAME } from '@constants';
 
 @Injectable()
 export class TaskService {

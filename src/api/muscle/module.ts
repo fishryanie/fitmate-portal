@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { MuscleService } from './muscle.service';
-import { MuscleController } from './muscle.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Muscle, MuscleSchema } from './muscle.schema';
+import { MuscleController } from '@api/muscle/controller';
+import { Muscle, MuscleSchema } from '@api/muscle/schema';
+import { MuscleService } from '@api/muscle/service';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: Muscle.name, schema: MuscleSchema }])],

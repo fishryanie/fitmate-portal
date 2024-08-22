@@ -1,18 +1,18 @@
-import { Module, NestModule, MiddlewareConsumer, ValidationPipe } from '@nestjs/common';
-import { JwtModule, JwtService } from '@nestjs/jwt';
+import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
+import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CloudinaryModule } from './api/upload/cloudinary.module';
 import { LoggerMiddleware } from 'middlewares/LoggerMiddleware';
-import { EquipmentModule } from './api/equipment/equipment.module';
-import { MuscleModule } from './api/muscle/muscle.module';
 import { UserModule } from './api/user/user.module';
-import { EXPIRES_TOKEN } from '#constant';
+import { EXPIRES_TOKEN } from '@constants';
 import { SectionModule } from './api/section/section.module';
 import { ChatModule } from './api/chat/chat.module';
-import { CommonModule } from '@api/common/common.module';
 import { ExerciseModule } from '@api/exercise/module';
 import { AuthenticationModule } from '@api/auth/auth.module';
+import { CommonModule } from '@api/common/module';
+import { EquipmentModule } from '@api/equipment/module';
+import { MuscleModule } from '@api/muscle/module';
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath: '.env' }),
@@ -28,11 +28,11 @@ import { AuthenticationModule } from '@api/auth/auth.module';
     AuthenticationModule,
     UserModule,
     MuscleModule,
-    CommonModule,
     EquipmentModule,
     ExerciseModule,
     SectionModule,
     ChatModule,
+    CommonModule,
   ],
   providers: [],
 })

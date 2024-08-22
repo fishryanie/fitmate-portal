@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { COLLECTION_NAME } from '#constant';
+import { COLLECTION_NAME } from '@constants';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Types } from 'mongoose';
 

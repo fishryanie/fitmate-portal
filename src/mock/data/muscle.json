@@ -1,0 +1,60 @@
+[
+  {
+    "name": { "en": "Triceps", "vi": "Cơ tam đầu (Cơ tay sau)" },
+    "function": { "en": "Extension of the elbow", "vi": "Duỗi khuỷu tay" }
+  },
+  {
+    "name": { "en": "Adductor Muscles", "vi": "Cơ khép" },
+    "function": { "en": "Adduction of the hip", "vi": "Khép hông" }
+  },
+  {
+    "name": {
+      "en": "Calf",
+      "vi": "Cơ bắp chân"
+    },
+    "function": {
+      "en": "Plantarflexion of the foot and flexion of the knee",
+      "vi": "Gập bàn chân và gập gối"
+    }
+  },
+  {
+    "name": {
+      "en": "External Obliques",
+      "vi": "Cơ chéo bụng ngoài"
+    },
+    "function": {
+      "en": "Rotation and lateral flexion of the spine",
+      "vi": "Xoay và gập bên cột sống"
+    }
+  },
+  {
+    "name": {
+      "en": "Pectoralis Minor",
+      "vi": "Cơ ngực bé"
+    },
+    "function": {
+      "en": "Stabilizes the shoulder blade and assists with the movement of the shoulder",
+      "vi": "Ổn định xương bả vai và hỗ trợ chuyển động của vai"
+    }
+  },
+  {
+    "name": {
+      "en": "Quadriceps",
+      "vi": "Cơ tứ đầu (Cơ đùi trước)"
+    },
+    "function": {
+      "en": "Extension of the knee",
+      "vi": "Duỗi gối"
+    }
+  },
+  {
+    "name": {
+      "en": "Hamstrings",
+      "vi": "Cơ gân kheo (Cơ đùi sau)"
+    },
+    "function": {
+      "en": "Flexion of the knee and extension of the hip",
+      "vi": "Gập gối và duỗi hông"
+    }
+  }
+]
